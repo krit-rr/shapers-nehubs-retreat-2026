@@ -32,31 +32,22 @@
     }
 
     .team-card {
-      background: var(--black);
-      padding: 1.75rem 1.5rem;
-      text-align: center;
-      transition: background 0.2s;
-    }
-    .team-card:hover { background: rgba(22,68,150,0.1); }
-
-    .team-avatar {
-      width: 72px;
-      height: 72px;
-      border-radius: 50%;
-      background: rgba(22,68,150,0.3);
-      border: 2px solid rgba(251,186,96,0.3);
-      margin: 0 auto 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.75rem;
-      overflow: hidden;
+      text-align: left;
+      padding: 1.5rem;
     }
 
-    .team-avatar img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+    .team-role {
+      margin-bottom: 0;
+    }
+
+    .team-card .team-role {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .team-card:has(.team-role:not([data-role="committee"])) .team-role {
+      color: var(--gray);
     }
 
     .team-name {
@@ -269,35 +260,35 @@
     <p class="section-body animate-up-3">Meet the people making this retreat happen and learn more about our city.</p>
   </div>
 
-  <!-- ===== PLANNING TEAM ===== -->
- <h2 class="section-title" style="font-size: clamp(1.6rem, 3.5vw, 2.5rem)">Northeast Retreat Planning Committee</h2>
-  
- <div class="team-grid">
-  <div class="team-card">
-    <div class="team-name">Steven Guo</div>
-  </div>
-  <div class="team-card">
-    <div class="team-name">Sarah Yeager</div>
-  </div>
-  <div class="team-card">
-    <div class="team-name">Michael Coutinho</div>
-  </div>
-  <div class="team-card">
-    <div class="team-name">Ian Chang</div>
-  </div>
-  <div class="team-card">
-    <div class="team-name">Seong Kim</div>
-  </div>
-  <div class="team-card">
-    <div class="team-name">Patrick Gormley</div>
-  </div>
-  <div class="team-card">
-    <div class="team-name">Ramiya Shelton</div>
-  </div>
-  <div class="team-card">
-    <div class="team-name">Tehya Lim</div>
+  <!-- ===== TEAM ===== -->
+  <div class="team-section">
+    <p class="section-label">The Shapers</p>
+  <div class="gold-line"></div>
+  <h2 class="section-title" style="font-size: clamp(1.6rem, 3.5vw, 2.5rem)">Pittsburgh Hub</h2>
+
+  <div class="team-grid">
+    <div class="team-card"><div class="team-name">Andrew Coutinho</div><div class="team-role">Planning Committee</div></div>
+    <div class="team-card"><div class="team-name">Steven Guo</div><div class="team-role">Planning Committee</div></div>
+    <div class="team-card"><div class="team-name">Sarah Yeager</div><div class="team-role">Planning Committee</div></div>
+    <div class="team-card"><div class="team-name">Michael Coutinho</div><div class="team-role">Planning Committee</div></div>
+    <div class="team-card"><div class="team-name">Ian Chang</div><div class="team-role">Planning Committee</div></div>
+    <div class="team-card"><div class="team-name">Seong Kim</div><div class="team-role">Planning Committee</div></div>
+    <div class="team-card"><div class="team-name">Patrick Gormley</div><div class="team-role">Planning Committee</div></div>
+    <div class="team-card"><div class="team-name">Ramiya Shelton</div><div class="team-role">Planning Committee</div></div>
+    <div class="team-card"><div class="team-name">Tehya Lim</div><div class="team-role">Planning Committee</div></div>
+    <div class="team-card"><div class="team-name">Krit Ravichander</div><div class="team-role" style="color: var(--gray)">Hub Member</div>
+    <div class="team-card"><div class="team-name">Mustafa Abdalla</div><div class="team-role" style="color: var(--gray)">Hub Member</div>
+    <div class="team-card"><div class="team-name">Jamie Cheng</div><div class="team-role" style="color: var(--gray)">Hub Member</div>
+    <div class="team-card"><div class="team-name">Tehya Kim</div><div class="team-role" style="color: var(--gray)">Hub Member</div>
+    <div class="team-card"><div class="team-name">Angie Yang</div><div class="team-role" style="color: var(--gray)">Hub Member</div>
+    <div class="team-card"><div class="team-name">Julia Kline</div><div class="team-role" style="color: var(--gray)">Hub Member</div>
+    <div class="team-card"><div class="team-name">Ibrahim Emara</div><div class="team-role" style="color: var(--gray)">Hub Member</div>
+    <div class="team-card"><div class="team-name">Marquise Wheeler</div><div class="team-role" style="color: var(--gray)">Hub Member</div>
+    <div class="team-card"><div class="team-name">Maryam Ghulami</div><div class="team-role" style="color: var(--gray)">Hub Member</div>
+    <div class="team-card"><div class="team-name">Vaisnavi Nemala</div><div class="team-role" style="color: var(--gray)">Hub Member</div>
   </div>
 </div>
+
 
   <!-- ===== PHOTO GALLERY ===== -->
   <div class="gallery-section">
