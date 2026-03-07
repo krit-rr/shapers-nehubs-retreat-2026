@@ -166,6 +166,23 @@
       line-height: 1.7;
     }
 
+    .housing-details-prose {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 680px;
+    }
+
+    .housing-details-prose p {
+      font-size: 1rem;
+      color: var(--gray);
+      line-height: 1.8;
+    }
+
+    .housing-details-prose strong {
+      color: var(--gold);
+    }
+
     .housing-details p { margin-bottom: 0.4rem; }
     .housing-details strong { color: var(--light); }
 
@@ -274,7 +291,7 @@
 
   <!-- NAVIGATION -->
   <nav>
-    <div class="nav-logo">GS NE Retreat '26</div>
+    <div class="nav-logo"> NE Hubs Retreat '26 </div>
     <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
       <span></span><span></span><span></span>
     </button>
@@ -282,72 +299,46 @@
       <li><a href="index.html">Home</a></li>
       <li><a href="schedule.html">Schedule</a></li>
       <li><a href="info.html" class="active">Helpful Info</a></li>
-      <li><a href="about.html">About Pittsburgh</a></li>
+      <li><a href="about.html">About Us</a></li>
     </ul>
   </nav>
 
   <!-- PAGE HERO -->
   <div class="page-hero">
-    <p class="section-label animate-up">Everything You Need</p>
+    <p class="section-label animate-up">What to bookmark and reference</p>
     <div class="gold-line"></div>
     <h1 class="section-title animate-up-2">Helpful Info</h1>
-    <p class="section-body animate-up-3">All the logistics to help you arrive prepared, comfortable, and ready to connect.</p>
   </div>
 
   <!-- JUMP NAV -->
   <div class="jump-nav">
-    <a href="#contacts">📞 Contacts</a>
-    <a href="#housing">🏠 Housing</a>
-    <a href="#transit">🚌 Transit</a>
-    <a href="#packing">🎒 Packing List</a>
+    <a href="#contacts">Contacts</a>
+    <a href="#housing">Housing</a>
+    <a href="#transit">Transit</a>
+    <a href="#packing">Packing List</a>
   </div>
 
   <!-- ===== CONTACTS ===== -->
   <div class="info-section" id="contacts">
     <div class="section-header">
-      <div class="section-icon">📞</div>
       <div class="section-header-text">
         <h2>Main Contacts</h2>
-        <p>Reach out if you have questions before or during the retreat</p>
+        <p>We reccomend you save these numbers before the retreat.</p>
       </div>
-    </div>
-
-    <div class="placeholder-box" style="margin-bottom:1.5rem">
-      <p>✦ Add Your Contacts Here</p>
-      <small>Replace these placeholder cards with your actual organizer contacts.</small>
     </div>
 
     <div class="contacts-grid">
       <div class="contact-card">
-        <div class="contact-name">Organizer Name</div>
-        <div class="contact-role">Lead Organizer · Hub Name</div>
-        <div class="contact-links">
-          <a href="mailto:email@example.com">✉️ email@example.com</a>
-          <a href="tel:+10000000000">📱 (000) 000-0000</a>
-        </div>
+        <div class="contact-name">Andrew Coutinho</div>
+        <div class="contact-role">(412) 616 3942</div>
       </div>
       <div class="contact-card">
-        <div class="contact-name">Organizer Name</div>
-        <div class="contact-role">Logistics Lead · Hub Name</div>
-        <div class="contact-links">
-          <a href="mailto:email@example.com">✉️ email@example.com</a>
-          <a href="tel:+10000000000">📱 (000) 000-0000</a>
-        </div>
+        <div class="contact-name">Steven Guo</div>
+        <div class="contact-role">(347) 280 8880</div>
       </div>
       <div class="contact-card">
-        <div class="contact-name">Organizer Name</div>
-        <div class="contact-role">Programming Lead · Hub Name</div>
-        <div class="contact-links">
-          <a href="mailto:email@example.com">✉️ email@example.com</a>
-          <a href="tel:+10000000000">📱 (000) 000-0000</a>
-        </div>
-      </div>
-      <div class="contact-card">
-        <div class="contact-name">On-Call Contact</div>
-        <div class="contact-role">Retreat Weekend · Emergency</div>
-        <div class="contact-links">
-          <a href="tel:+10000000000">📱 (000) 000-0000</a>
-        </div>
+        <div class="contact-name">Sarah Yeager</div>
+        <div class="contact-role">(570) 441 9585</div>
       </div>
     </div>
   </div>
@@ -362,82 +353,54 @@
       </div>
     </div>
 
-    <div class="placeholder-box" style="margin-bottom:1.5rem">
-      <p>✦ Housing Details Coming Soon</p>
-      <small>Add hotel/dorm info, room assignments, check-in times, and addresses below.</small>
-    </div>
-
-    <div class="housing-grid">
-      <div class="housing-card">
-        <div class="housing-type">Option A · Hotel</div>
-        <div class="housing-name">Hotel Name Here</div>
-        <div class="housing-details">
-          <p><strong>Address:</strong> 123 Street, Pittsburgh PA 15213</p>
-          <p><strong>Check-in:</strong> Thursday May 14 after 3:00 PM</p>
-          <p><strong>Check-out:</strong> Sunday May 17 by 12:00 PM</p>
-          <p><strong>Rate:</strong> $XXX/night · Block code: GSRETREAT26</p>
-          <p style="margin-top:0.75rem;">Additional notes about this housing option — shuttle availability, amenities, distance from venue, etc.</p>
-        </div>
-      </div>
-      <div class="housing-card">
-        <div class="housing-type">Option B · Campus Housing</div>
-        <div class="housing-name">CMU / University Housing</div>
-        <div class="housing-details">
-          <p><strong>Address:</strong> Carnegie Mellon University, Pittsburgh PA 15213</p>
-          <p><strong>Check-in:</strong> Thursday May 14 after 4:00 PM</p>
-          <p><strong>Check-out:</strong> Sunday May 17 by 11:00 AM</p>
-          <p><strong>Rate:</strong> TBD</p>
-          <p style="margin-top:0.75rem;">Notes about campus housing — bedding, what to bring, proximity to CMU Swartz Center, etc.</p>
-        </div>
-      </div>
+    <div class="housing-details-prose">
+      <p>Some Pittsburgh Shapers may be opening their homes to host visiting Shapers. When available, details will be shared via a housing coordination document.</p>
+      <p>Participants are welcome to arrange their own accommodations via hotels or short-term rentals.</p>
+      <p>We recommend staying near <strong>Oakland</strong>, <strong>Downtown</strong>, <strong>Lawrenceville</strong>, or the <strong>Strip District</strong> for ease of movement.</p>
     </div>
   </div>
 
   <!-- ===== TRANSIT ===== -->
   <div class="info-section" id="transit">
     <div class="section-header">
-      <div class="section-icon">🚌</div>
       <div class="section-header-text">
         <h2>Getting Around</h2>
-        <p>Airport arrivals, transit tips, and getting to the venue</p>
       </div>
     </div>
 
     <div class="transit-grid">
       <div class="transit-card">
-        <div class="transit-mode">✈️ From the Airport</div>
+        <div class="transit-mode">From the Airport</div>
         <div class="transit-title">Pittsburgh International (PIT)</div>
         <div class="transit-desc">
-          <p><strong>Rideshare (Uber/Lyft):</strong> ~30–40 min to CMU/Oakland area, ~$35–55.</p>
-          <p style="margin-top:0.5rem"><strong>Port Authority Bus (28X):</strong> ~45–60 min, very affordable. Runs from PIT to Downtown Pittsburgh.</p>
-          <p style="margin-top:0.5rem">Placeholder — add any group airport pickups or shuttle info here.</p>
+          <p><strong>Rideshare (Uber/Lyft):</strong> ~30–40 min to CMU/Oakland area, ~$40-80</p>
+          <p style="margin-top:0.5rem"><strong>Port Authority Bus (28X):</strong> ~45–60 min, $2.75.</p>
         </div>
       </div>
       <div class="transit-card">
-        <div class="transit-mode">🚇 Getting to Venue</div>
+        <div class="transit-mode">Getting to Venue</div>
         <div class="transit-title">CMU Swartz Center</div>
         <div class="transit-desc">
-          <p><strong>Address:</strong> Swartz Center for Entrepreneurship, Carnegie Mellon University, Pittsburgh PA 15213</p>
-          <p style="margin-top:0.5rem"><strong>By Bus:</strong> Port Authority bus 61A, 61B, 61C, or 61D to Forbes Ave/CMU stop.</p>
-          <p style="margin-top:0.5rem"><strong>Parking:</strong> Placeholder — add parking info.</p>
+          <p><strong>Address:</strong> 4765 Forbes Ave, Pittsburgh, PA 15213</p>
+          <p style="margin-top:0.5rem"><strong>Public Transit:</strong> Easily accessible via public transit!</p>
+          <p style="margin-top:0.5rem"><strong>Parking:</strong> Available in the Forbes & Morewood Parking Lot</p>
         </div>
       </div>
       <div class="transit-card">
-        <div class="transit-mode">🚌 Local Transit</div>
-        <div class="transit-title">Port Authority of Allegheny County</div>
+        <div class="transit-mode">Public Transit</div>
+        <div class="transit-title">Bus + Walking</div>
         <div class="transit-desc">
-          <p>Pittsburgh's bus network connects most major neighborhoods. The 61 bus line runs frequently between Downtown, Oakland (CMU/Pitt area), and Shadyside.</p>
-          <p style="margin-top:0.5rem"><strong>App:</strong> Transit App or Google Maps for real-time tracking.</p>
-          <p style="margin-top:0.5rem"><strong>Fare:</strong> $2.75 per ride. Day passes available.</p>
+          <p> Pittsburgh is very walkable within neighborhoods, but travel between neighborhoods will likely require the bus or rideshare. Pittsburgh's bus network connects many of its neighborhoods. The 61 bus line runs frequently between Downtown, Oakland (CMU/Pitt area), and Shadyside.</p>
+          <p style="margin-top:0.5rem"><strong>Bus Navigation App:</strong> Transit App or Google Maps</p>
+          <p style="margin-top:0.5rem"><strong>Bus Fare:</strong> $2.75 per ride. You must have cash or purchase a ticket via the Transit App. Day passes are available.</p>
         </div>
       </div>
       <div class="transit-card">
-        <div class="transit-mode">🚗 Rideshare & Bikes</div>
-        <div class="transit-title">Uber, Lyft & Healthy Ride</div>
+        <div class="transit-mode">Rideshare</div>
+        <div class="transit-title">Uber, Lyft</div>
         <div class="transit-desc">
           <p><strong>Uber/Lyft:</strong> Widely available throughout Pittsburgh.</p>
-          <p style="margin-top:0.5rem"><strong>Healthy Ride (bike share):</strong> Docked e-bikes available across Oakland and surrounding neighborhoods. Great for short trips.</p>
-          <p style="margin-top:0.5rem">Placeholder — add any group transportation during the retreat here.</p>
+          <p style="margin-top:0.5rem">Some hub members with cars may be available to carpool. Coordination will occur via the WhatsApp group.</p>
         </div>
       </div>
     </div>
@@ -445,65 +408,49 @@
 
   <!-- ===== PACKING LIST ===== -->
   <div class="info-section" id="packing">
-    <div class="section-header">
-      <div class="section-icon">🎒</div>
-      <div class="section-header-text">
-        <h2>Suggested Packing List</h2>
-        <p>May in Pittsburgh — expect variable weather, 50–70°F</p>
-      </div>
+  <div class="section-header">
+    <div class="section-icon">🎒</div>
+    <div class="section-header-text">
+      <h2>What to Bring</h2>
+      <p>May in Pittsburgh — expect variable weather, 50–70°F</p>
+    </div>
+  </div>
+
+  <div class="packing-grid">
+    <div class="packing-category">
+      <div class="packing-cat-title">👗 Clothing</div>
+      <ul class="packing-list">
+        <li>Lightweight rain jacket or umbrella</li>
+        <li>Comfortable, waterproof walking shoes</li>
+        <li>Workout clothes</li>
+        <li>Warm sweaters or light jackets for cooler mornings and evenings</li>
+        <li>Smart casual items for evening events</li>
+        <li>Sunglasses</li>
+      </ul>
     </div>
 
-    <div class="packing-grid">
-      <div class="packing-category">
-        <div class="packing-cat-title">👔 Clothing</div>
-        <ul class="packing-list">
-          <li>Business casual outfits for sessions (2–3)</li>
-          <li>One nicer outfit for the evening event/gala</li>
-          <li>Comfortable casual clothes for downtime</li>
-          <li>Light jacket or layer (May can be chilly)</li>
-          <li>Rain jacket or umbrella (Pittsburgh weather!)</li>
-          <li>Comfortable walking shoes</li>
-          <li>Dress shoes for evening events</li>
-        </ul>
-      </div>
-      <div class="packing-category">
-        <div class="packing-cat-title">💻 Tech & Work</div>
-        <ul class="packing-list">
-          <li>Laptop + charger</li>
-          <li>Phone charger & portable battery</li>
-          <li>Notebook and pens</li>
-          <li>Business cards (if you use them)</li>
-          <li>Headphones</li>
-        </ul>
-      </div>
-      <div class="packing-category">
-        <div class="packing-cat-title">🏥 Health & Wellness</div>
-        <ul class="packing-list">
-          <li>Any personal medications</li>
-          <li>Reusable water bottle</li>
-          <li>Snacks for travel</li>
-          <li>Hand sanitizer</li>
-          <li>Sunscreen (outdoor activities)</li>
-          <li>Allergy information shared with organizers</li>
-        </ul>
-      </div>
-      <div class="packing-category">
-        <div class="packing-cat-title">🌉 Pittsburgh Extras</div>
-        <ul class="packing-list">
-          <li>Walking shoes for exploring the city</li>
-          <li>Camera or phone for photos</li>
-          <li>Cash for local spots (some small vendors)</li>
-          <li>An appetite — Pittsburgh food is no joke!</li>
-          <li>Placeholder — add any event-specific items</li>
-        </ul>
-      </div>
+    <div class="packing-category">
+      <div class="packing-cat-title">🧴 Personal Items</div>
+      <ul class="packing-list">
+        <li>Toiletries (toothbrush, toothpaste, shampoo, conditioner, sunscreen, lotion, deodorant, etc.)</li>
+        <li>Medications and any necessary prescriptions</li>
+        <li>Phone charger and portable power bank</li>
+      </ul>
+    </div>
+
+    <div class="packing-category">
+      <div class="packing-cat-title">🎒 Miscellaneous</div>
+      <ul class="packing-list">
+        <li>Reusable water bottle</li>
+        <li>Snacks (if you have specific dietary needs)</li>
+        <li>Notebook and pen for taking notes</li>
+      </ul>
     </div>
   </div>
 
   <!-- FOOTER -->
   <footer>
-    <div class="footer-logo"> Global Shapers NE Hubs Retreat · Pittsburgh's Bridges of Belonging </div>
-    <p>May 15–17, 2026 · CMU Swartz Center </p>
+    <div class="footer-logo"> May 15–17, 2026 · CMU Swartz Center </div>
   </footer>
 
   <script>

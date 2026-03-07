@@ -50,7 +50,7 @@
     /* Schedule content area */
     .schedule-section {
       padding: 0 2.5rem 6rem;
-      max-width: 1100px;
+      max-width: 900px;
       margin: 0 auto;
     }
 
@@ -60,7 +60,7 @@
     /* Day header */
     .day-header {
       display: flex;
-      align-items: flex-start;
+      align-items: center; 
       justify-content: space-between;
       flex-wrap: wrap;
       gap: 1rem;
@@ -218,7 +218,7 @@
 
   <!-- NAVIGATION -->
   <nav>
-    <div class="nav-logo">GS NE Retreat '26</div>
+    <div class="nav-logo"> NE Hubs Retreat '26 </div>
     <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
       <span></span><span></span><span></span>
     </button>
@@ -226,16 +226,15 @@
       <li><a href="index.html">Home</a></li>
       <li><a href="schedule.html" class="active">Schedule</a></li>
       <li><a href="info.html">Helpful Info</a></li>
-      <li><a href="about.html">About Pittsburgh</a></li>
+      <li><a href="about.html">About Us</a></li>
     </ul>
   </nav>
 
   <!-- PAGE HERO -->
   <div class="page-hero">
-    <p class="section-label animate-up">Full Program</p>
+    <p class="section-label animate-up">Three days of connection, collaboration, and community</p>
     <div class="gold-line"></div>
     <h1 class="section-title animate-up-2">Retreat Schedule</h1>
-    <p class="section-body animate-up-3">Three days of connection, collaboration, and community in Pittsburgh. All times are Eastern Time.</p>
   </div>
 
   <!-- DAY TABS -->
@@ -250,53 +249,56 @@
     <div class="day-panel active" id="day1">
       <div class="day-header">
         <div>
-          <h2>Arrival Day</h2>
+          <h2>Day 1</h2>
           <div class="day-date">Friday, May 15, 2026</div>
         </div>
-        <div class="day-theme-badge">Welcome to Pittsburgh</div>
-      </div>
-
-      <div class="placeholder-notice">
-        <p>✦ Schedule Coming Soon</p>
-        <small>Fill in your actual arrival day events below — welcome dinner, check-in times, etc.</small>
+        <div class="day-theme-badge">Arrival and Connection</div>
       </div>
 
       <div class="timeline">
         <div class="timeline-item">
-          <div class="timeline-time">All Day</div>
+          <div class="timeline-time">4:00 – 6:00 PM</div>
           <div class="timeline-content">
-            <div class="timeline-title">Arrival & Check-In</div>
-            <div class="timeline-detail">Arrive in Pittsburgh and check in to your housing. See the Helpful Info page for housing details and transit options from the airport.</div>
+            <div class="timeline-title">Arrival Window</div>
+            <div class="timeline-detail">Head to your housing and get settled in. See the Helpful Info page for housing and transit details.</div>
             <div class="timeline-tags">
-              <span class="tag tag-location">📍 Housing TBD</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item meal">
+          <div class="timeline-time">6:00 – 7:30 PM</div>
+          <div class="timeline-content">
+            <div class="timeline-title">Opening Dinner — Arriving Together</div>
+            <div class="timeline-detail">Our first meal together — a chance to settle in, meet fellow Shapers from across the Northeast, and kick off the retreat with good food and great company.</div>
+            <div class="timeline-tags">
+              <span class="tag tag-meal">Dinner</span>
+              <span class="tag tag-location">📍 Location TBA</span>
             </div>
           </div>
         </div>
 
         <div class="timeline-item social">
-          <div class="timeline-time">7:00 PM</div>
+          <div class="timeline-time">7:45 – 9:30 PM</div>
           <div class="timeline-content">
-            <div class="timeline-title">Welcome Dinner</div>
-            <div class="timeline-detail">Placeholder — add your welcome dinner details here. Location, dress code, what to expect.</div>
+            <div class="timeline-title">=Shared Experiences</div>
+            <div class="timeline-detail">Choose your own adventure — PSO performance, a walking tour of Pittsburgh, or Shaper Bingo to meet new faces.</div>
             <div class="timeline-tags">
-              <span class="tag tag-social">Social</span>
-              <span class="tag tag-location">📍 Venue TBD</span>
+              <span class="tag tag-social">Optional</span>
             </div>
           </div>
         </div>
 
         <div class="timeline-item social">
-          <div class="timeline-time">9:00 PM</div>
+          <div class="timeline-time">9:30 PM+</div>
           <div class="timeline-content">
-            <div class="timeline-title">Evening Hangout</div>
-            <div class="timeline-detail">Placeholder — optional evening activity or free time to explore Pittsburgh's vibrant nightlife.</div>
+            <div class="timeline-title">Social Time</div>
+            <div class="timeline-detail">Keep the evening going — informal hangouts, exploring the neighborhood, or an early night before a full day tomorrow.</div>
             <div class="timeline-tags">
-              <span class="tag tag-social">Social</span>
+              <span class="tag tag-social">Optional</span>
             </div>
           </div>
         </div>
-      </div>
-    </div>
 
     <!-- ============ DAY 2 ============ -->
     <div class="day-panel" id="day2">
@@ -305,12 +307,7 @@
           <h2>Day Two</h2>
           <div class="day-date">Saturday, May 16, 2026</div>
         </div>
-        <div class="day-theme-badge">Full Day Programming</div>
-      </div>
-
-      <div class="placeholder-notice">
-        <p>✦ Schedule Coming Soon</p>
-        <small>Replace these placeholder blocks with your actual Saturday program.</small>
+        <div class="day-theme-badge">Core Programming</div>
       </div>
 
       <div class="timeline">
@@ -361,10 +358,10 @@
     <div class="day-panel" id="day3">
       <div class="day-header">
         <div>
-          <h2>Departure Day</h2>
+          <h2>Day 3</h2>
           <div class="day-date">Sunday, May 17, 2026</div>
         </div>
-        <div class="day-theme-badge">It's not goodbye, it's see you soon.</div>
+        <div class="day-theme-badge">Closure and Community</div>
       </div>
 
       <div class="placeholder-notice">
@@ -399,12 +396,13 @@
       </div>
     </div>
 
-  </div><!-- /schedule-section -->
+  </div>
+  
+  <!-- /schedule-section -->
 
   <!-- FOOTER -->
   <footer>
-    <div class="footer-logo"> Global Shapers NE Hubs Retreat · Pittsburgh's Bridges of Belonging </div>
-    <p>May 15–17, 2026 · CMU Swartz Center </p>
+    <div class="footer-logo"> May 15–17, 2026 · CMU Swartz Center </div>
   </footer>
 
   <script>
