@@ -7,6 +7,11 @@
   <link rel="stylesheet" href="styles.css" />
   <style>
     /* ===== HERO ===== */
+    section.hero {
+      max-width: 100%;
+      margin: 0;
+    }
+
     .hero {
       min-height: 100vh;
       position: relative;
@@ -15,6 +20,8 @@
       justify-content: center;
       overflow: hidden;
       padding: calc(var(--nav-height) + 2rem) 2.5rem 4rem;
+      box-sizing: border-box;
+      width: 100%;
     }
 
     /* Diagonal gold accent bar */
@@ -58,30 +65,32 @@
 
     .hero-title {
       font-family: var(--font-display);
-      font-size: clamp(2.8rem, 7vw, 6rem);
+      font-size: clamp(3rem, 4.5rem, 6rem);
       font-weight: 700;
       line-height: 1.05;
       color: var(--white);
-      margin-bottom: 1.5rem;
-      max-width: 800px;
+      padding-bottom: .8rem;
     }
+
+
 
     .hero-title .highlight {
       color: var(--gold);
-      display: block;
+      /* display: block; */
     }
 
     .hero-subtitle {
       font-family: var(--font-body);
-      font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+      font-size: clamp(1rem, 2rem, 3rem);
       color: var(--gray);
-      margin-bottom: 0.5rem;
+      margin-bottom: 2rem;
       font-style: italic;
+      line-height: 1.05;
     }
 
     .hero-theme {
       font-family: var(--font-display);
-      font-size: clamp(1rem, 2vw, 1.2rem);
+      font-size: clamp(.75rem, 1.5rem, 2rem);
       letter-spacing: 0.15em;
       color: var(--light);
       text-transform: uppercase;
@@ -117,11 +126,16 @@
       letter-spacing: 0.05em;
     }
 
+    /* Buttons! */
     .hero-cta {
       display: flex;
-      flex-wrap: wrap;
       gap: 1rem;
-      margin-bottom: 5rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-cta a {
+      width: 275px;
+      text-align: center;
     }
 
     /* Venue strip */
@@ -158,13 +172,15 @@
     /* Bridge SVG illustration */
     .hero-bridge {
       position: absolute;
-      bottom: -10px;
-      right: -20px;
-      width: 55%;
-      opacity: 0.12;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      max-height: 60%;
+      opacity: 0.1;
       pointer-events: none;
       z-index: 1;
     }
+
 
     /* ===== ABOUT STRIP ===== */
     .about-strip {
@@ -296,7 +312,7 @@
 
     @media (max-width: 640px) {
       .hero { padding-left: 1.5rem; padding-right: 1.5rem; }
-      .hero-bridge { display: none; }
+      /* .hero-bridge { display: none; } */
       .about-strip { padding: 3rem 1.5rem; }
       .info-cards-section { padding: 3.5rem 1.5rem; }
       .about-stats { grid-template-columns: 1fr 1fr; }
@@ -322,7 +338,7 @@
   <!-- HERO -->
   <section class="hero">
     <!-- Background bridge SVG -->
-    <svg class="hero-bridge" viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+    <svg class="hero-bridge" viewBox="0 0 800 300" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
       <!-- Simplified bridge silhouette -->
       <rect x="0" y="270" width="800" height="30" fill="white"/>
       <!-- Tower left -->
@@ -369,13 +385,13 @@
         </a>
       </div>
 
-      <div class="venue-strip animate-up-4">
+      <!-- <div class="venue-strip animate-up-4">
         <span class="venue-icon">📍</span>
         <div class="venue-info">
           <span>Primary Venue</span>
           <strong>CMU Swartz Center · Pittsburgh, PA</strong>
         </div>
-      </div>
+      </div> -->
     </div>
   </section>
 
@@ -430,7 +446,7 @@
 
   <!-- FOOTER -->
   <footer>
-    <div class="footer-logo"> May 15–17, 2026 · CMU Swartz Center </div>
+    <div class="footer-logo"> May 15–17, 2026 · Pittsburgh's Bridges of Belonging </div>
   </footer>
 
   <script>
