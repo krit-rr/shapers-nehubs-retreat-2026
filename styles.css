@@ -130,7 +130,7 @@ section {
 
 .section-label {
   font-family: var(--font-body);
-  font-size: 0.75rem;
+  font-size: 1rem;
   letter-spacing: 0.25em;
   text-transform: uppercase;
   color: var(--gold);
@@ -171,11 +171,13 @@ section {
 }
 
 .btn-primary {
-  background: var(--gold);
+  background: #6fa0ff;
   color: var(--black);
 }
+
 .btn-primary:hover {
   background: var(--white);
+  color: var(--black);
   transform: translateY(-2px);
   box-shadow: 0 8px 30px rgba(251, 186, 96, 0.3);
 }
@@ -237,7 +239,6 @@ footer .footer-logo {
   padding-right: 2.5rem;
   max-width: 1100px;
   margin: 0 auto;
-  border-bottom: 1px solid rgba(226,226,226,0.08);
 }
 
 /* ===== BRIDGE SVG BG ===== */

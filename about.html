@@ -46,10 +46,6 @@
       text-transform: uppercase;
     }
 
-    .team-card:has(.team-role:not([data-role="committee"])) .team-role {
-      color: var(--gray);
-    }
-
     .team-name {
       font-family: var(--font-body);
       font-size: 0.95rem;
@@ -85,6 +81,7 @@
       grid-template-rows: auto;
       gap: 4px;
       margin-top: 2.5rem;
+      padding-bottom: 4rem;
     }
 
     .gallery-item {
@@ -119,15 +116,8 @@
       gap: 0.5rem;
       background: rgba(22,68,150,0.08);
     }
-    .gallery-placeholder .ph-icon { font-size: 2rem; opacity: 0.5; }
-    .gallery-placeholder .ph-text {
-      font-size: 0.75rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--gray);
-    }
 
-    /* ===== FUN FACTS ===== */
+    /* ===== FORMER FUN FACTS & CURRENT EXPLORE ===== */
     .facts-section {
       background: var(--blue);
       padding: 5rem 2.5rem;
@@ -153,20 +143,12 @@
     }
     .fact-card:hover { border-color: rgba(251,186,96,0.4); }
 
-    .fact-number {
+    .fact-title {
       font-family: var(--font-display);
-      font-size: 3.5rem;
+      font-size: 1rem;
       font-weight: 700;
       color: var(--gold);
       line-height: 1;
-      margin-bottom: 0.5rem;
-    }
-
-    .fact-title {
-      font-family: var(--font-body);
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--white);
       margin-bottom: 0.5rem;
     }
 
@@ -175,53 +157,6 @@
       color: rgba(226,226,226,0.75);
       line-height: 1.65;
     }
-
-    /* ===== EXPLORE SECTION ===== */
-    .explore-section {
-      padding: 5rem 2.5rem;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    .explore-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2.5rem;
-    }
-
-    .explore-card {
-      padding: 1.75rem;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(226,226,226,0.08);
-    }
-
-    .explore-emoji { font-size: 1.75rem; margin-bottom: 0.75rem; }
-
-    .explore-title {
-      font-family: var(--font-body);
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--white);
-      margin-bottom: 0.4rem;
-    }
-
-    .explore-desc {
-      font-size: 0.85rem;
-      color: var(--gray);
-      line-height: 1.65;
-    }
-
-    /* Placeholder notice */
-    .placeholder-notice {
-      background: rgba(251,186,96,0.08);
-      border: 1px dashed rgba(251,186,96,0.3);
-      padding: 2rem;
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-    .placeholder-notice p { color: var(--gold); font-size: 0.9rem; margin-bottom: 0.4rem; }
-    .placeholder-notice small { color: var(--gray); font-size: 0.8rem; }
 
     @media (max-width: 768px) {
       .gallery-grid { grid-template-columns: 1fr 1fr; }
@@ -254,10 +189,10 @@
 
   <!-- PAGE HERO -->
   <div class="page-hero">
-    <p class="section-label animate-up">The City of Bridges</p>
+    <!-- <p class="section-label animate-up">The City of Bridges</p> -->
     <div class="gold-line"></div>
     <h1 class="section-title animate-up-2">Pittsburgh, PA</h1>
-    <p class="section-body animate-up-3">Meet the people making this retreat happen and learn more about our city.</p>
+    <p class="section-body animate-up-3">Meet the people making this retreat happen and learn more about our city of bridges.</p>
   </div>
 
   <!-- ===== TEAM ===== -->
@@ -301,82 +236,47 @@
       <!-- If anyone is reading this and wants to add photos: <img src="your-photo.jpg" alt="description"> inside .gallery-item -->
       <div class="gallery-item">
         <div class="gallery-placeholder">
-          <span class="ph-icon">📸</span>
-          <span class="ph-text">Add Your Photo</span>
         </div>
       </div>
       <div class="gallery-item">
         <div class="gallery-placeholder">
-          <span class="ph-icon">📸</span>
-          <span class="ph-text">Add Your Photo</span>
         </div>
       </div>
-      <div class="gallery-item">
-        <div class="gallery-placeholder">
-          <span class="ph-icon">📸</span>
-          <span class="ph-text">Add Your Photo</span>
-        </div>
-      </div>
-  </div>
-
-  <!-- ===== FUN FACTS ===== -->
-  <div class="facts-section">
-    <div class="facts-inner">
-      <p class="section-label" style="color: rgba(251,186,96,0.8)">Did You Know?</p>
-      <div class="gold-line"></div>
-      <h2 class="section-title">Fun Facts About Pittsburgh</h2>
-
-      <div class="facts-grid">
-        <div class="fact-card">
-          <div class="fact-number">446</div>
-          <div class="fact-title">Bridges</div>
-          <div class="fact-desc">Pittsburgh has more bridges than any other city in the world (yes, including Venice). Three rivers (the Allegheny, Monongahela, and Ohio) converge right here.</div>
-        </div>
-        <div class="fact-card">
-          <div class="fact-number">90+</div>
-          <div class="fact-title">Neighborhoods</div>
-          <div class="fact-desc">Pittsburgh is made up of over 90 distinct neighborhoods, each with its own culture, history, and personality — from the Strip District to Lawrenceville to Squirrel Hill.</div>
-        </div>
-        <div class="fact-card">
-          <div class="fact-number">2+</div>
-          <div class="fact-title">World-Class Universities</div>
-          <div class="fact-desc">Carnegie Mellon University and the University of Pittsburgh make Pittsburgh a global hub for technology, medicine, and entrepreneurship.</div>
-        </div>
-      </div>
-    </div>
   </div>
 
   <!-- ===== EXPLORE ===== -->
-  <div class="explore-section">
-    <p class="section-label">While You're Here</p>
-    <div class="gold-line"></div>
-    <h2 class="section-title" style="font-size: clamp(1.6rem, 3.5vw, 2.5rem)">Must-See Pittsburgh</h2>
-    <p class="section-body">If you have free time before or after the retreat, here are some of our favorites.</p>
+  <div class="facts-section">
+    <div class="facts-inner">
+      <p class="section-label" style="color: rgba(251,186,96,0.8)">While You're Here</p>
+      <div class="gold-line"></div>
+      <h2 class="section-title">Must-See Pittsburgh</h2>
+      <p style="color: rgba(226,226,226,0.7); font-size: 1rem; margin-top: -0.5rem; margin-bottom: 0;">If you have free time before or after the retreat, here are some of our favorites.</p>
 
-    <div class="explore-grid">
-      <div class="explore-card">
-        <div class="explore-title">The Andy Warhol Museum</div>
-        <div class="explore-desc">Pittsburgh's most famous son gets his own museum — 7 floors of pop art and cultural history right on the North Shore.</div>
-      </div>
-      <div class="explore-card">
-        <div class="explore-title">The Duquesne Incline</div>
-        <div class="explore-desc">A historic cable car (funicular) up Mount Washington with one of the most iconic views of the Pittsburgh skyline. Don't miss the Golden Triangle at sunset.</div>
-      </div>
-      <div class="explore-card">
-        <div class="explore-title">Phipps Conservatory</div>
-        <div class="explore-desc">A stunning Victorian greenhouse with rotating botanical exhibitions, located right in Schenley Park near CMU.</div>
-      </div>
-      <div class="explore-card">
-        <div class="explore-title">The Strip District</div>
-        <div class="explore-desc">Pittsburgh's bustling market district — fresh produce, international grocers, pierogies, coffee, and the beloved Primanti Brothers original location.</div>
-      </div>
-      <div class="explore-card">
-        <div class="explore-title">Carnegie Museum of Art</div>
-        <div class="explore-desc">World-class collection steps from CMU — contemporary art, architecture, and design in a grand Beaux-Arts building.</div>
-      </div>
-      <div class="explore-card">
-        <div class="explore-title">Schenley Park</div>
-        <div class="explore-desc">456 acres of urban park with trails, a skating rink, tennis courts, and gorgeous views. Perfect for a morning run between retreat sessions.</div>
+      <div class="facts-grid">
+        <div class="fact-card">
+          <div class="fact-title">The Andy Warhol Museum</div>
+          <div class="fact-desc">Pittsburgh's most famous son gets his own museum — 7 floors of pop art and cultural history right on the North Shore.</div>
+        </div>
+        <div class="fact-card">
+          <div class="fact-title">The Duquesne Incline</div>
+          <div class="fact-desc">A historic cable car (funicular) up Mount Washington with one of the most iconic views of the Pittsburgh skyline. Don't miss the Golden Triangle at sunset.</div>
+        </div>
+        <div class="fact-card">
+          <div class="fact-title">Phipps Conservatory</div>
+          <div class="fact-desc">A stunning Victorian greenhouse with rotating botanical exhibitions, located right in Schenley Park near CMU.</div>
+        </div>
+        <div class="fact-card">
+          <div class="fact-title">The Strip District</div>
+          <div class="fact-desc">Pittsburgh's bustling market district — fresh produce, international grocers, pierogies, coffee, and the beloved Primanti Brothers original location.</div>
+        </div>
+        <div class="fact-card">
+          <div class="fact-title">Carnegie Museum of Art</div>
+          <div class="fact-desc">World-class collection steps from CMU — contemporary art, architecture, and design in a grand Beaux-Arts building.</div>
+        </div>
+        <div class="fact-card">
+          <div class="fact-title">Schenley Park</div>
+          <div class="fact-desc">456 acres of urban park with trails, a skating rink, tennis courts, and gorgeous views. Perfect for a morning run between retreat sessions.</div>
+        </div>
       </div>
     </div>
   </div>

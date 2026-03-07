@@ -8,7 +8,7 @@
   <style>
     .page-hero {
       padding-top: calc(var(--nav-height) + 5rem);
-      padding-bottom: 3rem;
+      padding-bottom: 2.5rem;
       padding-left: 2.5rem;
       padding-right: 2.5rem;
       max-width: 1100px;
@@ -20,11 +20,15 @@
       display: flex;
       flex-wrap: wrap;
       gap: 0.75rem;
-      margin-bottom: 4rem;
+      margin-bottom: 2rem;
       padding: 0 2.5rem;
       max-width: 1100px;
       margin-left: auto;
       margin-right: auto;
+    }
+
+    .info-link {
+      background-color: var(--blue);
     }
 
     .jump-nav a {
@@ -32,11 +36,12 @@
       font-size: 0.8rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      border: 1px solid rgba(226,226,226,0.2);
+      border: 3px solid rgba(226,226,226,0.2);
       color: var(--light);
       transition: all 0.2s;
     }
     .jump-nav a:hover {
+      background-color: var(--black);
       border-color: var(--gold);
       color: var(--gold);
     }
@@ -78,12 +83,21 @@
     }
 
     .section-header-text p {
-      font-size: 0.85rem;
+      font-size: 1rem;
       color: var(--gray);
       letter-spacing: 0.05em;
     }
 
     /* Contacts grid */
+    .whatsapp-link {
+      font-weight: 600;
+      text-decoration: underline;
+    }
+
+    .whatsapp-link:hover {
+      color: var(--gold);
+    }
+
     .contacts-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -93,42 +107,26 @@
 
     .contact-card {
       background: var(--black);
-      padding: 1.75rem;
+      padding: 1.5rem;
       transition: background 0.2s;
     }
     .contact-card:hover { background: rgba(22,68,150,0.1); }
 
     .contact-name {
       font-family: var(--font-body);
-      font-size: 1.05rem;
+      font-size: 1.25rem;
       font-weight: 700;
       color: var(--white);
       margin-bottom: 0.25rem;
     }
 
-    .contact-role {
-      font-size: 0.78rem;
+    .contact-number {
+      font-size: 1.15rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--gold);
-      margin-bottom: 1rem;
+      margin-bottom: .5rem;
     }
-
-    .contact-links {
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-    }
-
-    .contact-links a {
-      font-size: 0.88rem;
-      color: var(--gray);
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      transition: color 0.2s;
-    }
-    .contact-links a:hover { color: var(--gold); }
 
     /* Housing */
     .housing-grid {
@@ -170,11 +168,11 @@
       display: flex;
       flex-direction: column;
       gap: 1rem;
-      max-width: 680px;
+      /* max-width: 680px; */
     }
 
     .housing-details-prose p {
-      font-size: 1rem;
+      font-size: 1.25rem;
       color: var(--gray);
       line-height: 1.8;
     }
@@ -210,14 +208,14 @@
 
     .transit-title {
       font-family: var(--font-body);
-      font-size: 1rem;
+      font-size: 1.25rem;
       font-weight: 700;
       color: var(--white);
       margin-bottom: 0.75rem;
     }
 
     .transit-desc {
-      font-size: 0.88rem;
+      font-size: 1;
       color: var(--gray);
       line-height: 1.7;
     }
@@ -305,17 +303,17 @@
 
   <!-- PAGE HERO -->
   <div class="page-hero">
-    <p class="section-label animate-up">What to bookmark and reference</p>
+    <!-- <p class="section-label animate-up">What to bookmark and reference</p> -->
     <div class="gold-line"></div>
     <h1 class="section-title animate-up-2">Helpful Info</h1>
   </div>
 
   <!-- JUMP NAV -->
   <div class="jump-nav">
-    <a href="#contacts">Contacts</a>
-    <a href="#housing">Housing</a>
-    <a href="#transit">Transit</a>
-    <a href="#packing">Packing List</a>
+    <a href="#contacts" class="info-link">Contacts</a>
+    <a href="#housing" class="info-link">Housing</a>
+    <a href="#transit" class="info-link">Transit</a>
+    <a href="#packing" class="info-link">Packing List</a>
   </div>
 
   <!-- ===== CONTACTS ===== -->
@@ -323,22 +321,24 @@
     <div class="section-header">
       <div class="section-header-text">
         <h2>Main Contacts</h2>
-        <p>We reccomend you save these numbers before the retreat.</p>
+        <p>We reccomend you save these numbers before the retreat and 
+        <a href="https://chat.whatsapp.com/YOUR-LINK-HERE" class="whatsapp-link" target="_blank" rel="noopener"> join the WhatsApp group</a> 
+        if you haven't yet.</p>
       </div>
     </div>
 
     <div class="contacts-grid">
       <div class="contact-card">
         <div class="contact-name">Andrew Coutinho</div>
-        <div class="contact-role">(412) 616 3942</div>
+        <div class="contact-number">(412) 616 3942</div>
       </div>
       <div class="contact-card">
         <div class="contact-name">Steven Guo</div>
-        <div class="contact-role">(347) 280 8880</div>
+        <div class="contact-number">(347) 280 8880</div>
       </div>
       <div class="contact-card">
         <div class="contact-name">Sarah Yeager</div>
-        <div class="contact-role">(570) 441 9585</div>
+        <div class="contact-number">(570) 441 9585</div>
       </div>
     </div>
   </div>
@@ -412,6 +412,7 @@
       <p>Expect variable weather, 50–70°F</p>
     </div>
   </div>
+
 
   <div class="packing-grid">
     <div class="packing-category">
