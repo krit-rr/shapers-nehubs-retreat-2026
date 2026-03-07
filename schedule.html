@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Schedule — GS NE Retreat Pittsburgh 2026</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .page-hero {
+      padding-top: calc(var(--nav-height) + 5rem);
+      padding-bottom: 3rem;
+      padding-left: 2.5rem;
+      padding-right: 2.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    /* Day tabs */
+    .day-tabs {
+      display: flex;
+      gap: 0;
+      border-bottom: 1px solid rgba(226,226,226,0.12);
+      margin-bottom: 3rem;
+      overflow-x: auto;
+    }
+
+    .day-tab {
+      padding: 1rem 2rem;
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gray);
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      white-space: nowrap;
+      transition: color 0.2s, border-color 0.2s;
+      background: none;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+    }
+
+    .day-tab:hover { color: var(--light); }
+    .day-tab.active {
+      color: var(--gold);
+      border-bottom-color: var(--gold);
+    }
+
+    /* Schedule content area */
+    .schedule-section {
+      padding: 0 2.5rem 6rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .day-panel { display: none; }
+    .day-panel.active { display: block; }
+
+    /* Day header */
+    .day-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid rgba(226,226,226,0.08);
+    }
+
+    .day-header h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    .day-header .day-date {
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-top: 0.4rem;
+    }
+
+    .day-theme-badge {
+      padding: 0.5rem 1.25rem;
+      background: rgba(22, 68, 150, 0.25);
+      border: 1px solid rgba(22, 68, 150, 0.5);
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      color: var(--light);
+      text-transform: uppercase;
+      align-self: flex-start;
+    }
+
+    /* Timeline */
+    .timeline {
+      position: relative;
+      padding-left: 2rem;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      bottom: 8px;
+      width: 1px;
+      background: linear-gradient(to bottom, var(--gold), rgba(251,186,96,0.1));
+    }
+
+    .timeline-item {
+      position: relative;
+      padding: 0 0 2.5rem 2rem;
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      gap: 1.5rem;
+      align-items: start;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -4px;
+      top: 8px;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--gold);
+      border: 2px solid var(--black);
+    }
+
+    .timeline-item.social::before { background: var(--blue); }
+    .timeline-item.meal::before { background: var(--gray); }
+    .timeline-item.break::before { background: rgba(156,156,154,0.4); }
+
+    .timeline-time {
+      font-family: var(--font-body);
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      color: var(--gold);
+      padding-top: 3px;
+      font-weight: 600;
+    }
+
+    .timeline-item.social .timeline-time { color: #6fa0ff; }
+    .timeline-item.meal .timeline-time { color: var(--gray); }
+
+    .timeline-content {}
+
+    .timeline-title {
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.3rem;
+    }
+
+    .timeline-detail {
+      font-size: 0.88rem;
+      color: var(--gray);
+      line-height: 1.6;
+    }
+
+    .timeline-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.75rem;
+    }
+
+    .tag {
+      padding: 0.25rem 0.75rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border: 1px solid;
+    }
+
+    .tag-session { border-color: rgba(22,68,150,0.6); color: #6fa0ff; }
+    .tag-social   { border-color: rgba(251,186,96,0.4); color: var(--gold); }
+    .tag-meal     { border-color: rgba(156,156,154,0.4); color: var(--gray); }
+    .tag-location { border-color: rgba(226,226,226,0.2); color: var(--light); font-style: italic; }
+
+    /* Placeholder notice */
+    .placeholder-notice {
+      background: rgba(251,186,96,0.08);
+      border: 1px dashed rgba(251,186,96,0.3);
+      padding: 2.5rem;
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .placeholder-notice p {
+      color: var(--gold);
+      font-size: 0.9rem;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+    }
+
+    .placeholder-notice small {
+      color: var(--gray);
+      font-size: 0.8rem;
+    }
+
+    @media (max-width: 640px) {
+      .schedule-section { padding: 0 1.5rem 4rem; }
+      .page-hero { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .timeline-item { grid-template-columns: 1fr; gap: 0.25rem; }
+      .timeline-time { padding-top: 0; }
+      .day-tab { padding: 0.75rem 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="nav-logo">GS NE Retreat '26</div>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="schedule.html" class="active">Schedule</a></li>
+      <li><a href="info.html">Helpful Info</a></li>
+      <li><a href="about.html">About Pittsburgh</a></li>
+    </ul>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <p class="section-label animate-up">Full Program</p>
+    <div class="gold-line"></div>
+    <h1 class="section-title animate-up-2">Retreat Schedule</h1>
+    <p class="section-body animate-up-3">Three days of connection, collaboration, and community in Pittsburgh. All times are Eastern Time.</p>
+  </div>
+
+  <!-- DAY TABS -->
+  <div class="schedule-section">
+    <div class="day-tabs">
+      <button class="day-tab active" onclick="showDay('day1', this)">Thursday · May 14</button>
+      <button class="day-tab" onclick="showDay('day2', this)">Friday · May 15</button>
+      <button class="day-tab" onclick="showDay('day3', this)">Saturday · May 16</button>
+      <button class="day-tab" onclick="showDay('day4', this)">Sunday · May 17</button>
+    </div>
+
+    <!-- ============ DAY 1 (Arrival) ============ -->
+    <div class="day-panel active" id="day1">
+      <div class="day-header">
+        <div>
+          <h2>Arrival Day</h2>
+          <div class="day-date">Thursday, May 14, 2026</div>
+        </div>
+        <div class="day-theme-badge">Welcome to Pittsburgh</div>
+      </div>
+
+      <div class="placeholder-notice">
+        <p>✦ Schedule Coming Soon</p>
+        <small>Fill in your actual arrival day events below — welcome dinner, check-in times, etc.</small>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-time">All Day</div>
+          <div class="timeline-content">
+            <div class="timeline-title">Arrival & Check-In</div>
+            <div class="timeline-detail">Arrive in Pittsburgh and check in to your housing. See the Helpful Info page for housing details and transit options from the airport.</div>
+            <div class="timeline-tags">
+              <span class="tag tag-location">📍 Housing TBD</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item social">
+          <div class="timeline-time">7:00 PM</div>
+          <div class="timeline-content">
+            <div class="timeline-title">Welcome Dinner</div>
+            <div class="timeline-detail">Placeholder — add your welcome dinner details here. Location, dress code, what to expect.</div>
+            <div class="timeline-tags">
+              <span class="tag tag-social">Social</span>
+              <span class="tag tag-location">📍 Venue TBD</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item social">
+          <div class="timeline-time">9:00 PM</div>
+          <div class="timeline-content">
+            <div class="timeline-title">Evening Hangout</div>
+            <div class="timeline-detail">Placeholder — optional evening activity or free time to explore Pittsburgh's vibrant nightlife.</div>
+            <div class="timeline-tags">
+              <span class="tag tag-social">Social</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ DAY 2 ============ -->
+    <div class="day-panel" id="day2">
+      <div class="day-header">
+        <div>
+          <h2>Day One</h2>
+          <div class="day-date">Friday, May 15, 2026</div>
+        </div>
+        <div class="day-theme-badge">Opening Day</div>
+      </div>
+
+      <div class="placeholder-notice">
+        <p>✦ Schedule Coming Soon</p>
+        <small>Replace these placeholder blocks with your actual Friday program.</small>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item meal">
+          <div class="timeline-time">8:30 AM</div>
+          <div class="timeline-content">
+            <div class="timeline-title">Breakfast</div>
+            <div class="timeline-detail">Placeholder — morning fuel before a full day of programming.</div>
+            <div class="timeline-tags">
+              <span class="tag tag-meal">Meal</span>
+              <span class="tag tag-location">📍 CMU Swartz Center</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-time">9:30 AM</div>
+          <div class="timeline-content">
+            <div class="timeline-title">Opening Ceremony</div>
+            <div class="timeline-detail">Placeholder — official welcome, introductions, and setting the tone for the retreat.</div>
+            <div class="timeline-tags">
+              <span class="tag tag-session">Plenary</span>
+              <span class="tag tag-location">📍 CMU Swartz Center</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-time">11:00 AM</div>
+          <div class="timeline-content">
+            <div class="timeline-title">Session Block A</div>
+            <div class="timeline-detail">Placeholder — add your morning session title, description, speaker(s), and any breakouts.</div>
+            <div class="timeline-tags">
+              <span class="tag tag-session">Workshop</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item meal">
+          <div class="timeline-time">12:30 PM</div>
+          <div class="timeline-content">
+            <div class="timeline-title">Lunch</div>
+            <div class="timeline-detail">Placeholder — group lunch with networking time.</div>
+            <div class="timeline-tags">
+              <span class="tag tag-meal">Meal</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-time">2:00 PM</div>
+          <div class="timeline-content">
+            <div class="timeline-title">Session Block B</div>
+            <div class="timeline-detail">Placeholder — afternoon session details here.</div>
+            <div class="timeline-tags">
+              <span class="tag tag-session">Workshop</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item break">
+          <div class="timeline-time">3:30 PM</div>
+          <div class="timeline-content">
+            <div class="timeline-title">Coffee Break</div>
+            <div class="timeline-detail">Placeholder — short refreshment break.</div>
+            <div class="timeline-tags">
+              <span class="tag tag-meal">Break</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-time">3:45 PM</div>
+          <div class="timeline-content">
+            <div class="timeline-title">Session Block C</div>
+            <div class="timeline-detail">Placeholder — late afternoon session.</div>
+            <div class="timeline-tags">
+              <span class="tag tag-session">Session</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item social">
+          <div class="timeline-time">6:30 PM</div>
+          <div class="timeline-content">
+            <div class="timeline-title">Evening Event</div>
+            <div class="timeline-detail">Placeholder — dinner, social event, or Pittsburgh experience here.</div>
+            <div class="timeline-tags">
+              <span class="tag tag-social">Social</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ DAY 3 ============ -->
+    <div class="day-panel" id="day3">
+      <div class="day-header">
+        <div>
+          <h2>Day Two</h2>
+          <div class="day-date">Saturday, May 16, 2026</div>
+        </div>
+        <div class="day-theme-badge">Full Day Programming</div>
+      </div>
+
+      <div class="placeholder-notice">
+        <p>✦ Schedule Coming Soon</p>
+        <small>Replace these placeholder blocks with your actual Saturday program.</small>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item meal">
+          <div class="timeline-time">8:30 AM</div>
+          <div class="timeline-content">
+            <div class="timeline-title">Breakfast</div>
+            <div class="timeline-detail">Placeholder.</div>
+            <div class="timeline-tags"><span class="tag tag-meal">Meal</span></div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">9:30 AM</div>
+          <div class="timeline-content">
+            <div class="timeline-title">Morning Session</div>
+            <div class="timeline-detail">Placeholder — morning programming details.</div>
+            <div class="timeline-tags"><span class="tag tag-session">Session</span></div>
+          </div>
+        </div>
+        <div class="timeline-item meal">
+          <div class="timeline-time">12:30 PM</div>
+          <div class="timeline-content">
+            <div class="timeline-title">Lunch</div>
+            <div class="timeline-detail">Placeholder.</div>
+            <div class="timeline-tags"><span class="tag tag-meal">Meal</span></div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">2:00 PM</div>
+          <div class="timeline-content">
+            <div class="timeline-title">Afternoon Session</div>
+            <div class="timeline-detail">Placeholder — afternoon programming details.</div>
+            <div class="timeline-tags"><span class="tag tag-session">Session</span></div>
+          </div>
+        </div>
+        <div class="timeline-item social">
+          <div class="timeline-time">7:00 PM</div>
+          <div class="timeline-content">
+            <div class="timeline-title">Gala / Closing Dinner</div>
+            <div class="timeline-detail">Placeholder — Saturday night closing celebration details.</div>
+            <div class="timeline-tags"><span class="tag tag-social">Social Event</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ DAY 4 (Departure) ============ -->
+    <div class="day-panel" id="day4">
+      <div class="day-header">
+        <div>
+          <h2>Departure Day</h2>
+          <div class="day-date">Sunday, May 17, 2026</div>
+        </div>
+        <div class="day-theme-badge">Until Next Time</div>
+      </div>
+
+      <div class="placeholder-notice">
+        <p>✦ Schedule Coming Soon</p>
+        <small>Add your closing day activities, checkout times, and farewell details.</small>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item meal">
+          <div class="timeline-time">9:00 AM</div>
+          <div class="timeline-content">
+            <div class="timeline-title">Farewell Breakfast</div>
+            <div class="timeline-detail">Placeholder — final morning together before departures.</div>
+            <div class="timeline-tags"><span class="tag tag-meal">Meal</span></div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">10:30 AM</div>
+          <div class="timeline-content">
+            <div class="timeline-title">Closing Ceremony</div>
+            <div class="timeline-detail">Placeholder — reflections, key takeaways, and official close of the retreat.</div>
+            <div class="timeline-tags"><span class="tag tag-session">Plenary</span></div>
+          </div>
+        </div>
+        <div class="timeline-item social">
+          <div class="timeline-time">12:00 PM</div>
+          <div class="timeline-content">
+            <div class="timeline-title">Check-Out & Departures</div>
+            <div class="timeline-detail">Safe travels home! See the Helpful Info page for transit back to the airport.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /schedule-section -->
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">Global Shapers · Northeast Hubs Retreat · Pittsburgh 2026</div>
+    <p>May 15–17, 2026 · CMU Swartz Center · <em>Bridges of Belonging</em></p>
+  </footer>
+
+  <script>
+    function showDay(id, btn) {
+      document.querySelectorAll('.day-panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.day-tab').forEach(t => t.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+      btn.classList.add('active');
+    }
+
+    const toggle = document.getElementById('navToggle');
+    const links = document.getElementById('navLinks');
+    toggle.addEventListener('click', () => links.classList.toggle('open'));
+  </script>
+</body>
+</html>

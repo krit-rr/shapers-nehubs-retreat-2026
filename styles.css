@@ -1,0 +1,289 @@
+@import url('https://fonts.googleapis.com/css2?family=Aleo:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap');
+
+/* Garet font - self-hosted via CDN fallback */
+@font-face {
+  font-family: 'Garet';
+  src: url('https://db.onlinewebfonts.com/t/32787e2c857f9ad60f0dd2f2a19cc5a1.woff2') format('woff2'),
+       url('https://db.onlinewebfonts.com/t/32787e2c857f9ad60f0dd2f2a19cc5a1.woff') format('woff');
+  font-weight: 700;
+}
+
+/* ===== CSS VARIABLES ===== */
+:root {
+  --black: #000102;
+  --gold: #fbba60;
+  --blue: #164496;
+  --gray: #9c9c9a;
+  --light: #e2e2e2;
+  --white: #ffffff;
+
+  --font-display: 'Garet', 'Aleo', Georgia, serif;
+  --font-body: 'Aleo', Georgia, serif;
+
+  --nav-height: 72px;
+}
+
+/* ===== RESET ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--black);
+  color: var(--light);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+
+/* ===== NAVIGATION ===== */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: var(--nav-height);
+  background: rgba(0, 1, 2, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(251, 186, 96, 0.2);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2.5rem;
+}
+
+.nav-logo {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+}
+
+.nav-links a {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--light);
+  transition: color 0.2s;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px; left: 0;
+  width: 0; height: 2px;
+  background: var(--gold);
+  transition: width 0.25s ease;
+}
+
+.nav-links a:hover { color: var(--gold); }
+.nav-links a:hover::after,
+.nav-links a.active::after { width: 100%; }
+.nav-links a.active { color: var(--gold); }
+
+/* Hamburger */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 4px;
+}
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--light);
+  transition: all 0.3s;
+}
+
+/* ===== BRIDGE DIVIDER ===== */
+.bridge-divider {
+  width: 100%;
+  height: 40px;
+  position: relative;
+  overflow: hidden;
+  opacity: 0.3;
+}
+.bridge-divider svg { width: 100%; height: 100%; }
+
+/* ===== SECTION STYLES ===== */
+section {
+  padding: 5rem 2.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.section-label {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--white);
+  margin-bottom: 1.5rem;
+}
+
+.section-body {
+  font-size: 1.1rem;
+  color: var(--gray);
+  max-width: 640px;
+  line-height: 1.75;
+}
+
+/* ===== BUTTONS ===== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.9rem 2rem;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: var(--gold);
+  color: var(--black);
+}
+.btn-primary:hover {
+  background: var(--white);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(251, 186, 96, 0.3);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--light);
+  border: 1.5px solid rgba(226, 226, 226, 0.4);
+}
+.btn-outline:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+  transform: translateY(-2px);
+}
+
+/* ===== GOLD LINE ACCENT ===== */
+.gold-line {
+  width: 60px;
+  height: 3px;
+  background: var(--gold);
+  margin-bottom: 2rem;
+}
+
+/* ===== CARDS ===== */
+.card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(226, 226, 226, 0.1);
+  padding: 2rem;
+  transition: border-color 0.25s, transform 0.25s;
+}
+.card:hover {
+  border-color: rgba(251, 186, 96, 0.3);
+  transform: translateY(-3px);
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: rgba(255,255,255,0.03);
+  border-top: 1px solid rgba(226, 226, 226, 0.1);
+  padding: 3rem 2.5rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--gray);
+}
+
+footer .footer-logo {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--gold);
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.1em;
+}
+
+/* ===== PAGE HEADER (inner pages) ===== */
+.page-hero {
+  padding-top: calc(var(--nav-height) + 4rem);
+  padding-bottom: 3rem;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  border-bottom: 1px solid rgba(226,226,226,0.08);
+}
+
+/* ===== BRIDGE SVG BG ===== */
+.bridge-bg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0.07;
+  pointer-events: none;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.animate-up { animation: fadeUp 0.8s ease forwards; }
+.animate-up-2 { animation: fadeUp 0.8s 0.15s ease forwards; opacity: 0; }
+.animate-up-3 { animation: fadeUp 0.8s 0.3s ease forwards; opacity: 0; }
+.animate-up-4 { animation: fadeUp 0.8s 0.45s ease forwards; opacity: 0; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  nav { padding: 0 1.5rem; }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: var(--nav-height);
+    left: 0; right: 0;
+    flex-direction: column;
+    background: var(--black);
+    border-bottom: 1px solid rgba(251,186,96,0.2);
+    padding: 1.5rem 2rem;
+    gap: 1.5rem;
+  }
+  .nav-links.open { display: flex; }
+  .nav-toggle { display: flex; }
+
+  section { padding: 3.5rem 1.5rem; }
+  .page-hero { padding-left: 1.5rem; padding-right: 1.5rem; }
+}

@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Helpful Info — GS NE Retreat Pittsburgh 2026</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .page-hero {
+      padding-top: calc(var(--nav-height) + 5rem);
+      padding-bottom: 3rem;
+      padding-left: 2.5rem;
+      padding-right: 2.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    /* Jump nav */
+    .jump-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 4rem;
+      padding: 0 2.5rem;
+      max-width: 1100px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .jump-nav a {
+      padding: 0.55rem 1.25rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border: 1px solid rgba(226,226,226,0.2);
+      color: var(--light);
+      transition: all 0.2s;
+    }
+    .jump-nav a:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    /* Info sections */
+    .info-section {
+      padding: 4rem 2.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+      border-top: 1px solid rgba(226,226,226,0.08);
+    }
+
+    .info-section:first-of-type { border-top: none; }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .section-icon {
+      font-size: 2rem;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(22,68,150,0.2);
+      border: 1px solid rgba(22,68,150,0.4);
+      flex-shrink: 0;
+    }
+
+    .section-header-text h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      color: var(--white);
+      margin-bottom: 0.25rem;
+    }
+
+    .section-header-text p {
+      font-size: 0.85rem;
+      color: var(--gray);
+      letter-spacing: 0.05em;
+    }
+
+    /* Contacts grid */
+    .contacts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1px;
+      background: rgba(226,226,226,0.08);
+    }
+
+    .contact-card {
+      background: var(--black);
+      padding: 1.75rem;
+      transition: background 0.2s;
+    }
+    .contact-card:hover { background: rgba(22,68,150,0.1); }
+
+    .contact-name {
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.25rem;
+    }
+
+    .contact-role {
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .contact-links a {
+      font-size: 0.88rem;
+      color: var(--gray);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: color 0.2s;
+    }
+    .contact-links a:hover { color: var(--gold); }
+
+    /* Housing */
+    .housing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .housing-card {
+      border: 1px solid rgba(226,226,226,0.1);
+      padding: 1.75rem;
+      transition: border-color 0.25s;
+    }
+    .housing-card:hover { border-color: rgba(251,186,96,0.3); }
+
+    .housing-type {
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+
+    .housing-name {
+      font-family: var(--font-body);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.75rem;
+    }
+
+    .housing-details {
+      font-size: 0.88rem;
+      color: var(--gray);
+      line-height: 1.7;
+    }
+
+    .housing-details p { margin-bottom: 0.4rem; }
+    .housing-details strong { color: var(--light); }
+
+    /* Transit */
+    .transit-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .transit-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(226,226,226,0.08);
+      padding: 1.75rem;
+    }
+
+    .transit-mode {
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--blue);
+      color: #6fa0ff;
+      margin-bottom: 0.5rem;
+    }
+
+    .transit-title {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.75rem;
+    }
+
+    .transit-desc {
+      font-size: 0.88rem;
+      color: var(--gray);
+      line-height: 1.7;
+    }
+
+    /* Packing list */
+    .packing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .packing-category {
+      padding: 1.75rem;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(226,226,226,0.08);
+    }
+
+    .packing-cat-title {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid rgba(251,186,96,0.2);
+    }
+
+    .packing-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .packing-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      font-size: 0.88rem;
+      color: var(--light);
+      line-height: 1.4;
+    }
+
+    .packing-list li::before {
+      content: '□';
+      color: var(--gray);
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* Placeholder box */
+    .placeholder-box {
+      background: rgba(251,186,96,0.05);
+      border: 1px dashed rgba(251,186,96,0.25);
+      padding: 2rem;
+      text-align: center;
+    }
+    .placeholder-box p { color: var(--gold); font-size: 0.9rem; margin-bottom: 0.4rem; }
+    .placeholder-box small { color: var(--gray); font-size: 0.8rem; }
+
+    @media (max-width: 768px) {
+      .transit-grid { grid-template-columns: 1fr; }
+      .page-hero, .info-section { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .jump-nav { padding: 0 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="nav-logo">GS NE Retreat '26</div>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="schedule.html">Schedule</a></li>
+      <li><a href="info.html" class="active">Helpful Info</a></li>
+      <li><a href="about.html">About Pittsburgh</a></li>
+    </ul>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <p class="section-label animate-up">Everything You Need</p>
+    <div class="gold-line"></div>
+    <h1 class="section-title animate-up-2">Helpful Info</h1>
+    <p class="section-body animate-up-3">All the logistics to help you arrive prepared, comfortable, and ready to connect.</p>
+  </div>
+
+  <!-- JUMP NAV -->
+  <div class="jump-nav">
+    <a href="#contacts">📞 Contacts</a>
+    <a href="#housing">🏠 Housing</a>
+    <a href="#transit">🚌 Transit</a>
+    <a href="#packing">🎒 Packing List</a>
+  </div>
+
+  <!-- ===== CONTACTS ===== -->
+  <div class="info-section" id="contacts">
+    <div class="section-header">
+      <div class="section-icon">📞</div>
+      <div class="section-header-text">
+        <h2>Main Contacts</h2>
+        <p>Reach out if you have questions before or during the retreat</p>
+      </div>
+    </div>
+
+    <div class="placeholder-box" style="margin-bottom:1.5rem">
+      <p>✦ Add Your Contacts Here</p>
+      <small>Replace these placeholder cards with your actual organizer contacts.</small>
+    </div>
+
+    <div class="contacts-grid">
+      <div class="contact-card">
+        <div class="contact-name">Organizer Name</div>
+        <div class="contact-role">Lead Organizer · Hub Name</div>
+        <div class="contact-links">
+          <a href="mailto:email@example.com">✉️ email@example.com</a>
+          <a href="tel:+10000000000">📱 (000) 000-0000</a>
+        </div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-name">Organizer Name</div>
+        <div class="contact-role">Logistics Lead · Hub Name</div>
+        <div class="contact-links">
+          <a href="mailto:email@example.com">✉️ email@example.com</a>
+          <a href="tel:+10000000000">📱 (000) 000-0000</a>
+        </div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-name">Organizer Name</div>
+        <div class="contact-role">Programming Lead · Hub Name</div>
+        <div class="contact-links">
+          <a href="mailto:email@example.com">✉️ email@example.com</a>
+          <a href="tel:+10000000000">📱 (000) 000-0000</a>
+        </div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-name">On-Call Contact</div>
+        <div class="contact-role">Retreat Weekend · Emergency</div>
+        <div class="contact-links">
+          <a href="tel:+10000000000">📱 (000) 000-0000</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== HOUSING ===== -->
+  <div class="info-section" id="housing">
+    <div class="section-header">
+      <div class="section-icon">🏠</div>
+      <div class="section-header-text">
+        <h2>Housing</h2>
+        <p>Where you'll be staying during the retreat</p>
+      </div>
+    </div>
+
+    <div class="placeholder-box" style="margin-bottom:1.5rem">
+      <p>✦ Housing Details Coming Soon</p>
+      <small>Add hotel/dorm info, room assignments, check-in times, and addresses below.</small>
+    </div>
+
+    <div class="housing-grid">
+      <div class="housing-card">
+        <div class="housing-type">Option A · Hotel</div>
+        <div class="housing-name">Hotel Name Here</div>
+        <div class="housing-details">
+          <p><strong>Address:</strong> 123 Street, Pittsburgh PA 15213</p>
+          <p><strong>Check-in:</strong> Thursday May 14 after 3:00 PM</p>
+          <p><strong>Check-out:</strong> Sunday May 17 by 12:00 PM</p>
+          <p><strong>Rate:</strong> $XXX/night · Block code: GSRETREAT26</p>
+          <p style="margin-top:0.75rem;">Additional notes about this housing option — shuttle availability, amenities, distance from venue, etc.</p>
+        </div>
+      </div>
+      <div class="housing-card">
+        <div class="housing-type">Option B · Campus Housing</div>
+        <div class="housing-name">CMU / University Housing</div>
+        <div class="housing-details">
+          <p><strong>Address:</strong> Carnegie Mellon University, Pittsburgh PA 15213</p>
+          <p><strong>Check-in:</strong> Thursday May 14 after 4:00 PM</p>
+          <p><strong>Check-out:</strong> Sunday May 17 by 11:00 AM</p>
+          <p><strong>Rate:</strong> TBD</p>
+          <p style="margin-top:0.75rem;">Notes about campus housing — bedding, what to bring, proximity to CMU Swartz Center, etc.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== TRANSIT ===== -->
+  <div class="info-section" id="transit">
+    <div class="section-header">
+      <div class="section-icon">🚌</div>
+      <div class="section-header-text">
+        <h2>Getting Around</h2>
+        <p>Airport arrivals, transit tips, and getting to the venue</p>
+      </div>
+    </div>
+
+    <div class="transit-grid">
+      <div class="transit-card">
+        <div class="transit-mode">✈️ From the Airport</div>
+        <div class="transit-title">Pittsburgh International (PIT)</div>
+        <div class="transit-desc">
+          <p><strong>Rideshare (Uber/Lyft):</strong> ~30–40 min to CMU/Oakland area, ~$35–55.</p>
+          <p style="margin-top:0.5rem"><strong>Port Authority Bus (28X):</strong> ~45–60 min, very affordable. Runs from PIT to Downtown Pittsburgh.</p>
+          <p style="margin-top:0.5rem">Placeholder — add any group airport pickups or shuttle info here.</p>
+        </div>
+      </div>
+      <div class="transit-card">
+        <div class="transit-mode">🚇 Getting to Venue</div>
+        <div class="transit-title">CMU Swartz Center</div>
+        <div class="transit-desc">
+          <p><strong>Address:</strong> Swartz Center for Entrepreneurship, Carnegie Mellon University, Pittsburgh PA 15213</p>
+          <p style="margin-top:0.5rem"><strong>By Bus:</strong> Port Authority bus 61A, 61B, 61C, or 61D to Forbes Ave/CMU stop.</p>
+          <p style="margin-top:0.5rem"><strong>Parking:</strong> Placeholder — add parking info.</p>
+        </div>
+      </div>
+      <div class="transit-card">
+        <div class="transit-mode">🚌 Local Transit</div>
+        <div class="transit-title">Port Authority of Allegheny County</div>
+        <div class="transit-desc">
+          <p>Pittsburgh's bus network connects most major neighborhoods. The 61 bus line runs frequently between Downtown, Oakland (CMU/Pitt area), and Shadyside.</p>
+          <p style="margin-top:0.5rem"><strong>App:</strong> Transit App or Google Maps for real-time tracking.</p>
+          <p style="margin-top:0.5rem"><strong>Fare:</strong> $2.75 per ride. Day passes available.</p>
+        </div>
+      </div>
+      <div class="transit-card">
+        <div class="transit-mode">🚗 Rideshare & Bikes</div>
+        <div class="transit-title">Uber, Lyft & Healthy Ride</div>
+        <div class="transit-desc">
+          <p><strong>Uber/Lyft:</strong> Widely available throughout Pittsburgh.</p>
+          <p style="margin-top:0.5rem"><strong>Healthy Ride (bike share):</strong> Docked e-bikes available across Oakland and surrounding neighborhoods. Great for short trips.</p>
+          <p style="margin-top:0.5rem">Placeholder — add any group transportation during the retreat here.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== PACKING LIST ===== -->
+  <div class="info-section" id="packing">
+    <div class="section-header">
+      <div class="section-icon">🎒</div>
+      <div class="section-header-text">
+        <h2>Suggested Packing List</h2>
+        <p>May in Pittsburgh — expect variable weather, 50–70°F</p>
+      </div>
+    </div>
+
+    <div class="packing-grid">
+      <div class="packing-category">
+        <div class="packing-cat-title">👔 Clothing</div>
+        <ul class="packing-list">
+          <li>Business casual outfits for sessions (2–3)</li>
+          <li>One nicer outfit for the evening event/gala</li>
+          <li>Comfortable casual clothes for downtime</li>
+          <li>Light jacket or layer (May can be chilly)</li>
+          <li>Rain jacket or umbrella (Pittsburgh weather!)</li>
+          <li>Comfortable walking shoes</li>
+          <li>Dress shoes for evening events</li>
+        </ul>
+      </div>
+      <div class="packing-category">
+        <div class="packing-cat-title">💻 Tech & Work</div>
+        <ul class="packing-list">
+          <li>Laptop + charger</li>
+          <li>Phone charger & portable battery</li>
+          <li>Notebook and pens</li>
+          <li>Business cards (if you use them)</li>
+          <li>Headphones</li>
+        </ul>
+      </div>
+      <div class="packing-category">
+        <div class="packing-cat-title">🏥 Health & Wellness</div>
+        <ul class="packing-list">
+          <li>Any personal medications</li>
+          <li>Reusable water bottle</li>
+          <li>Snacks for travel</li>
+          <li>Hand sanitizer</li>
+          <li>Sunscreen (outdoor activities)</li>
+          <li>Allergy information shared with organizers</li>
+        </ul>
+      </div>
+      <div class="packing-category">
+        <div class="packing-cat-title">🌉 Pittsburgh Extras</div>
+        <ul class="packing-list">
+          <li>Walking shoes for exploring the city</li>
+          <li>Camera or phone for photos</li>
+          <li>Cash for local spots (some small vendors)</li>
+          <li>An appetite — Pittsburgh food is no joke!</li>
+          <li>Placeholder — add any event-specific items</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">Global Shapers · Northeast Hubs Retreat · Pittsburgh 2026</div>
+    <p>May 15–17, 2026 · CMU Swartz Center · <em>Bridges of Belonging</em></p>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('navToggle');
+    const links = document.getElementById('navLinks');
+    toggle.addEventListener('click', () => links.classList.toggle('open'));
+  </script>
+</body>
+</html>
