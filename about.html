@@ -77,25 +77,26 @@
 
     .gallery-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: auto;
+      grid-template-columns: repeat(4, 1fr);
+      grid-auto-flow: dense;
       gap: 4px;
       margin-top: 2.5rem;
       padding-bottom: 4rem;
     }
 
-    .gallery-item {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(226,226,226,0.08);
-      aspect-ratio: 4/3;
-      overflow: hidden;
-      position: relative;
-      cursor: pointer;
-    }
+    .gallery-item:nth-child(1)  { grid-column: span 2; grid-row: span 2; }
+    .gallery-item:nth-child(4)  { grid-column: span 2; }
+    .gallery-item:nth-child(6)  { grid-column: span 2; grid-row: span 2; }
+    .gallery-item:nth-child(8)  { grid-column: span 2; }
+    .gallery-item:nth-child(10) { grid-column: span 2; grid-row: span 2; }
+    .gallery-item:nth-child(12) { grid-column: span 2; }
 
-    .gallery-item:first-child {
-      grid-column: span 2;
-      grid-row: span 1;
+    .gallery-item {
+          background: rgba(255,255,255,0.04);
+          border: 1px solid rgba(226,226,226,0.08);
+          overflow: hidden;
+          position: relative;
+          cursor: pointer;
     }
 
     .gallery-item img {
@@ -104,18 +105,8 @@
       object-fit: cover;
       transition: transform 0.4s ease;
     }
-    .gallery-item:hover img { transform: scale(1.04); }
 
-    .gallery-placeholder {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      background: rgba(22,68,150,0.08);
-    }
+    .gallery-item:hover img { transform: scale(1.04); }
 
     /* ===== FORMER FUN FACTS & CURRENT EXPLORE ===== */
     .facts-section {
@@ -202,8 +193,8 @@
   <h2 class="section-title" style="font-size: clamp(1.6rem, 3.5vw, 2.5rem)">Pittsburgh Hub</h2>
 
   <div class="team-grid">
-    <div class="team-card"><div class="team-name">Andrew Coutinho</div><div class="team-role">Planning Committee</div></div>
-    <div class="team-card"><div class="team-name">Steven Guo</div><div class="team-role">Planning Committee</div></div>
+    <div class="team-card"><div class="team-name">Steven Guo</div><div class="team-role"> Curator • Planning Committee</div></div>
+    <div class="team-card"><div class="team-name">Andrew Coutinho</div><div class="team-role">Vice Curator • Planning Committee</div></div>
     <div class="team-card"><div class="team-name">Sarah Yeager</div><div class="team-role">Planning Committee</div></div>
     <div class="team-card"><div class="team-name">Michael Coutinho</div><div class="team-role">Planning Committee</div></div>
     <div class="team-card"><div class="team-name">Ian Chang</div><div class="team-role">Planning Committee</div></div>
@@ -211,7 +202,7 @@
     <div class="team-card"><div class="team-name">Patrick Gormley</div><div class="team-role">Planning Committee</div></div>
     <div class="team-card"><div class="team-name">Ramiya Shelton</div><div class="team-role">Planning Committee</div></div>
     <div class="team-card"><div class="team-name">Tehya Lim</div><div class="team-role">Planning Committee</div></div>
-    <div class="team-card"><div class="team-name">Krit Ravichander</div><div class="team-role" style="color: var(--gray)">Hub Member</div></div>
+    <div class="team-card"><div class="team-name">Krit Ravichander</div><div class="team-role">Planning Committee</div></div>
     <div class="team-card"><div class="team-name">Mustafa Abdalla</div><div class="team-role" style="color: var(--gray)">Hub Member</div></div>
     <div class="team-card"><div class="team-name">Jamie Cheng</div><div class="team-role" style="color: var(--gray)">Hub Member</div></div>
     <div class="team-card"><div class="team-name">Tehya Kim</div><div class="team-role" style="color: var(--gray)">Hub Member</div></div>
@@ -223,26 +214,6 @@
     <div class="team-card"><div class="team-name">Vaisnavi Nemala</div><div class="team-role" style="color: var(--gray)">Hub Member</div></div>
   </div>
 </div>
-
-
-  <!-- ===== PHOTO GALLERY ===== -->
-  <div class="gallery-section">
-    <p class="section-label">Our Beautiful City</p>
-    <div class="gold-line"></div>
-    <h2 class="section-title" style="font-size: clamp(1.6rem, 3.5vw, 2.5rem)">Photos</h2>
-    <p class="section-body" style="margin-bottom: 0;">Andrew I'd love to add some of your photos here!</p>
-
-    <div class="gallery-grid">
-      <!-- If anyone is reading this and wants to add photos: <img src="your-photo.jpg" alt="description"> inside .gallery-item -->
-      <div class="gallery-item">
-        <div class="gallery-placeholder">
-        </div>
-      </div>
-      <div class="gallery-item">
-        <div class="gallery-placeholder">
-        </div>
-      </div>
-  </div>
 
   <!-- ===== EXPLORE ===== -->
   <div class="facts-section">
@@ -279,6 +250,69 @@
         </div>
       </div>
     </div>
+  </div>
+
+  <!-- ===== PHOTO GALLERY ===== -->
+  <div class="gallery-section">
+    <p class="section-label">Us and Our Beautiful City</p>
+    <div class="gold-line"></div>
+    <h2 class="section-title" style="font-size: clamp(1.6rem, 3.5vw, 2.5rem)">Photos</h2>
+    <p class="section-body" style="margin-bottom: 0;">Courtesy of Andrew Coutinho <a href="https://www.asfvisualsllc.com" target="_blank" style="color: var(--gold); text-decoration: underline;">(asfvisualsllc.com)</a></p>
+    
+  <div class="gallery-grid">
+      <!-- If anyone is reading this and wants to add photos: <img src="your-photo.jpg" alt="description"> inside .gallery-item -->
+
+      <div class="gallery-item">
+        <img src="photos/UPMC.jpg">
+      </div>
+
+      <div class="gallery-item">
+        <img src="photos/ShapersGroup.jpg">
+      </div>
+
+      <div class="gallery-item">
+        <img src="photos/Hannah-Heena-3.jpg">
+      </div>
+
+      <div class="gallery-item">
+        <img src="photos/StevenandSarah.jpg">
+      </div>
+
+      <div class="gallery-item">
+        <img src="photos/16-April-08.jpg">
+      </div>
+
+      <div class="gallery-item">
+        <img src="photos/MichaelandHeena-1.jpg">
+      </div>
+
+      <div class="gallery-item">
+        <img src="photos/InvolveMint.jpg">
+      </div>
+
+      <div class="gallery-item">
+        <img src="photos/DusqueneIncline.jpg">
+      </div>
+
+      <div class="gallery-item">
+        <img src="photos/StevenGardening.jpg">
+      </div>
+
+      <div class="gallery-item">
+        <img src="photos/16-April-23.jpg">
+      </div>
+
+      <div class="gallery-item">
+        <img src="photos/MichaelGardening.jpg">
+      </div>
+
+      <div class="gallery-item">
+        <img src="photos/Acrisure.jpg">
+      </div>
+
+      <div class="gallery-item">
+        <img src="photos/16-April-01.jpg">
+      </div>
   </div>
 
   <!-- FOOTER -->
