@@ -122,34 +122,6 @@
       align-items: start;
     }
 
-    .timeline-item::before {
-      content: '';
-      position: absolute;
-      left: -4px;
-      top: 8px;
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-      background: var(--gold);
-      border: 2px solid var(--black);
-    }
-
-    .timeline-item.social::before { background: var(--blue); }
-    .timeline-item.meal::before { background: var(--gray); }
-    .timeline-item.break::before { background: rgba(156,156,154,0.4); }
-
-    .timeline-time {
-      font-family: var(--font-body);
-      font-size: 0.82rem;
-      letter-spacing: 0.08em;
-      color: var(--gold);
-      padding-top: 3px;
-      font-weight: 600;
-    }
-
-    .timeline-item.social .timeline-time { color: #6fa0ff; }
-    .timeline-item.meal .timeline-time { color: var(--gray); }
-
     .timeline-title {
       font-family: var(--font-body);
       font-size: 1.05rem;
@@ -171,38 +143,55 @@
       margin-top: 0.75rem;
     }
 
-    .tag {
+    /* -------- BULLETS -------- */
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -4px;
+      top: 8px;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--gold);
+      border: 2px solid var(--black);
+    }
+    .timeline-item.optional::before { background: var(--gray); }
+    .timeline-item.meal::before { background: #fff; }
+    .timeline-item.break::before { background: #6fa0ff;}
+
+    /* -------- TIME TEXT -------- */
+    .timeline-time {
+      font-family: var(--font-body);
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      color: var(--gold);
+      padding-top: 3px;
+      font-weight: 600;
+    }
+    /* -------- TIME TEXT -------- */
+    .timeline-item.optional .timeline-time { color: var(--gray); }
+    .timeline-item.meal .timeline-time { color: #fff; }
+    .timeline-item.break .timeline-time { color: #6fa0ff; }
+
+    /* -------- TAGS -------- */
+    .tag { 
       padding: 0.25rem 0.75rem;
       font-size: 0.72rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       border: 1px solid;
     }
-
-    .tag-session { border-color: rgba(22,68,150,0.6); color: #6fa0ff; }
-    .tag-social   { border-color: rgba(251,186,96,0.4); color: var(--gold); }
-    .tag-meal     { border-color: rgba(156,156,154,0.4); color: var(--gray); }
-    .tag-location { border-color: rgba(226,226,226,0.2); color: var(--light); font-style: italic; }
-
-    /* Placeholder notice */
-    .placeholder-notice {
-      background: rgba(251,186,96,0.08);
-      border: 1px dashed rgba(251,186,96,0.3);
-      padding: 2.5rem;
-      text-align: center;
-      margin-bottom: 2.5rem;
-    }
-
-    .placeholder-notice p {
-      color: var(--gold);
-      font-size: 0.9rem;
-      letter-spacing: 0.05em;
-      margin-bottom: 0.5rem;
-    }
-
-    .placeholder-notice small {
+    .timeline-item.optional .tag { 
+      border-color: var(--gray); 
       color: var(--gray);
-      font-size: 0.8rem;
+    }
+    .timeline-item.meal .tag { 
+      border-color: #fff; 
+      color: #fff;
+    }
+    .timeline-item.break .tag { 
+      border-color: #6fa0ff; 
+      color: #6fa0ff;
     }
 
     @media (max-width: 640px) {
@@ -232,7 +221,7 @@
 
   <!-- PAGE HERO -->
   <div class="page-hero">
-    <!-- <p class="section-label animate-up">Connection, collaboration, and community</p> -->
+    <p class="section-label animate-up">Scheduled programming is potentially subject to change.</p>
     <div class="gold-line"></div>
     <h1 class="section-title animate-up-2">Retreat Schedule</h1>
   </div>
@@ -245,64 +234,16 @@
       <button class="day-tab" onclick="showDay('day3', this)">Sunday · May 17th</button>
     </div>
 
-    <!-- ============ DAY 1 ============ -->
     <div class="day-panel active" id="day1">
       <div class="day-header">
         <div>
           <h2>Day 1</h2>
-          <div class="day-date">Arrival & Informal Connection</div>
+          <div class="day-date">Arrival & Connection</div>
         </div>
       </div>
-
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-time">4:00 – 6:00 PM</div>
-          <div class="timeline-content">
-            <div class="timeline-title">Arrival Window</div>
-            <div class="timeline-detail">Head to your housing and get settled in. See the Helpful Info page for housing and transit details.</div>
-            <div class="timeline-tags">
-              <span class="tag tag-location">📍 Housing TBD</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="timeline-item meal">
-          <div class="timeline-time">6:00 – 7:30 PM</div>
-          <div class="timeline-content">
-            <div class="timeline-title">Opening Dinner — Arriving Together</div>
-            <div class="timeline-detail">Our first meal together — a chance to settle in, meet fellow Shapers from across the Northeast, and kick off the retreat with good food and great company.</div>
-            <div class="timeline-tags">
-              <span class="tag tag-meal">Dinner</span>
-              <span class="tag tag-location">📍 Location TBA</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="timeline-item social">
-          <div class="timeline-time">7:45 – 9:30 PM</div>
-          <div class="timeline-content">
-            <div class="timeline-title">Shared Experiences</div>
-            <div class="timeline-detail">Choose your own adventure — PSO performance, a walking tour of Pittsburgh, or Shaper Bingo to meet new faces.</div>
-            <div class="timeline-tags">
-              <span class="tag tag-social">Optional</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="timeline-item social">
-          <div class="timeline-time">9:30 PM+</div>
-          <div class="timeline-content">
-            <div class="timeline-title">Social Time</div>
-            <div class="timeline-detail">Keep the evening going — informal hangouts, exploring the neighborhood, or an early night before a full day tomorrow.</div>
-            <div class="timeline-tags">
-              <span class="tag tag-social">Optional</span>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="timeline" id="fridaySchedule"></div>
     </div>
 
-    <!-- ============ DAY 2 ============ -->
     <div class="day-panel" id="day2">
       <div class="day-header">
         <div>
@@ -310,128 +251,9 @@
           <div class="day-date">Core Programming</div>
         </div>
       </div>
-
-      <div class="timeline">
-          <div class="timeline-item social">
-            <div class="timeline-time">Before 9:00 AM</div>
-            <div class="timeline-content">
-              <div class="timeline-title">Optional Morning Activities</div>
-              <div class="timeline-detail">Early risers welcome — details to come.</div>
-              <div class="timeline-tags"><span class="tag tag-social">Optional</span></div>
-            </div>
-          </div>
-
-          <div class="timeline-item meal">
-            <div class="timeline-time">9:00 – 9:30 AM</div>
-            <div class="timeline-content">
-              <div class="timeline-title">Breakfast & Check-In</div>
-              <div class="timeline-detail">Fuel up and get settled before the day's programming begins.</div>
-              <div class="timeline-tags"><span class="tag tag-meal">Meal</span></div>
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-time">9:30 – 10:00 AM</div>
-            <div class="timeline-content">
-              <div class="timeline-title">Welcome & Why Pittsburgh?</div>
-              <div class="timeline-detail">Official opening remarks and an introduction to our host city and the theme of Bridges of Belonging.</div>
-              <div class="timeline-tags"><span class="tag tag-session">Plenary</span></div>
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-time">10:00 – 10:30 AM</div>
-            <div class="timeline-content">
-              <div class="timeline-title">Community Champion Intro</div>
-              <div class="timeline-detail">Meet the community champions leading the Northeast hubs.</div>
-              <div class="timeline-tags"><span class="tag tag-session">Plenary</span></div>
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-time">10:30 – 10:45 AM</div>
-            <div class="timeline-content">
-              <div class="timeline-title">NE Hubs Introductions</div>
-              <div class="timeline-detail">Quick introductions from each Northeast hub in attendance.</div>
-              <div class="timeline-tags"><span class="tag tag-session">Plenary</span></div>
-            </div>
-          </div>
-
-          <div class="timeline-item break">
-            <div class="timeline-time">10:45 – 11:00 AM</div>
-            <div class="timeline-content">
-              <div class="timeline-title">Outdoor Break</div>
-              <div class="timeline-detail">Step outside and enjoy some fresh Pittsburgh air.</div>
-              <div class="timeline-tags"><span class="tag tag-meal">Break</span></div>
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-time">11:00 AM – 12:00 PM</div>
-            <div class="timeline-content">
-              <div class="timeline-title">Shapers Pitch Session</div>
-              <div class="timeline-detail">Shapers share projects, initiatives, and ideas — lightning-style pitches from across the Northeast.</div>
-              <div class="timeline-tags"><span class="tag tag-session">Workshop</span></div>
-            </div>
-          </div>
-
-          <div class="timeline-item meal">
-            <div class="timeline-time">12:00 – 1:00 PM</div>
-            <div class="timeline-content">
-              <div class="timeline-title">Lunch + Group Discussions</div>
-              <div class="timeline-detail">Lunch served with facilitated table discussions to continue the morning's conversations.</div>
-              <div class="timeline-tags"><span class="tag tag-meal">Meal</span></div>
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-time">1:00 – 3:30 PM</div>
-            <div class="timeline-content">
-              <div class="timeline-title">3–4 Panel Sessions</div>
-              <div class="timeline-detail">Deep-dive panel discussions across multiple tracks — details coming soon.</div>
-              <div class="timeline-tags"><span class="tag tag-session">Panels</span></div>
-            </div>
-          </div>
-
-          <div class="timeline-item break">
-            <div class="timeline-time">3:30 – 4:00 PM</div>
-            <div class="timeline-content">
-              <div class="timeline-title">Break</div>
-              <div class="timeline-detail">Recharge before the afternoon's final session.</div>
-              <div class="timeline-tags"><span class="tag tag-meal">Break</span></div>
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-time">4:00 – 5:30 PM</div>
-            <div class="timeline-content">
-              <div class="timeline-title">Speed Dating</div>
-              <div class="timeline-detail">Structured one-on-one conversations designed to spark unexpected connections across hubs.</div>
-              <div class="timeline-tags"><span class="tag tag-session">Workshop</span></div>
-            </div>
-          </div>
-
-          <div class="timeline-item meal">
-            <div class="timeline-time">6:30 – 8:00 PM</div>
-            <div class="timeline-content">
-              <div class="timeline-title">Dinner</div>
-              <div class="timeline-detail">Dinner together — location details to come.</div>
-              <div class="timeline-tags"><span class="tag tag-meal">Meal</span></div>
-            </div>
-          </div>
-
-          <div class="timeline-item social">
-            <div class="timeline-time">8:00 PM onward</div>
-            <div class="timeline-content">
-              <div class="timeline-title">Evening Connection Activities</div>
-              <div class="timeline-detail">Wind down the day with informal activities and continued connection.</div>
-              <div class="timeline-tags"><span class="tag tag-social">Social</span></div>
-            </div>
-          </div>
-      </div>
+    <div class="timeline" id="saturdaySchedule"></div>
     </div>
 
-    <!-- ============ DAY 3 ============ -->
     <div class="day-panel" id="day3">
       <div class="day-header">
         <div>
@@ -439,57 +261,9 @@
           <div class="day-date">Closure & Community</div>
         </div>
       </div>
-
-      <div class="timeline">
-        <div class="timeline-item meal">
-          <div class="timeline-time">9:00 – 9:45 AM</div>
-          <div class="timeline-content">
-            <div class="timeline-title">Breakfast</div>
-            <div class="timeline-detail">Final morning meal together before the closing ceremony.</div>
-            <div class="timeline-tags"><span class="tag tag-meal">Meal</span></div>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-time">9:45 – 11:00 AM</div>
-          <div class="timeline-content">
-            <div class="timeline-title">Closing Ceremony: What We Carry Forward</div>
-            <div class="timeline-detail">Reflections, commitments, and a send-off to carry the spirit of Bridges of Belonging back to your hub.</div>
-            <div class="timeline-tags"><span class="tag tag-session">Plenary</span></div>
-          </div>
-        </div>
-
-        <div class="timeline-item break">
-          <div class="timeline-time">11:00 – 11:30 AM</div>
-          <div class="timeline-content">
-            <div class="timeline-title">Transition & Departures</div>
-            <div class="timeline-detail">Pack up, say goodbyes, and check out of housing.</div>
-            <div class="timeline-tags"><span class="tag tag-meal">Break</span></div>
-          </div>
-        </div>
-
-        <div class="timeline-item social">
-          <div class="timeline-time">11:30 AM – 2:00 PM</div>
-          <div class="timeline-content">
-            <div class="timeline-title">Optional Community Engagement</div>
-            <div class="timeline-detail">Join Pittsburgh Shapers for a local volunteer or community experience before heading home.</div>
-            <div class="timeline-tags"><span class="tag tag-social">Optional</span></div>
-          </div>
-        </div>
-
-        <div class="timeline-item social">
-          <div class="timeline-time">2:00 PM onward</div>
-          <div class="timeline-content">
-            <div class="timeline-title">Optional Post-Retreat Activities</div>
-            <div class="timeline-detail">Explore Pittsburgh on your own — see the About Us page for recommendations.</div>
-            <div class="timeline-tags"><span class="tag tag-social">Optional</span></div>
-          </div>
-        </div>
-      </div>
+    <div class="timeline" id="sundaySchedule"></div>
     </div>
   </div>
-
-  <!-- /schedule-section -->
 
   <!-- FOOTER -->
   <footer>
@@ -503,10 +277,169 @@
       document.getElementById(id).classList.add('active');
       btn.classList.add('active');
     }
-
+    // For Mobile
     const toggle = document.getElementById('navToggle');
     const links = document.getElementById('navLinks');
     toggle.addEventListener('click', () => links.classList.toggle('open'));
+
+    /* ============ SCHEDULE (Edit below) ============ */
+    const schedules = {
+      friday: [
+        {
+          time: "4:30 – 6:00 PM",
+          title: "Arrival Window",
+          detail: "Informal meet-up at CMU, welcome from Michael Coutinho, and orientation for early arrivals."
+        },
+        {
+          time: "6:00 – 8:00 PM",
+          title: "Drop-In Dinner",
+          detail: "Casual dinner with no formal programming.",
+          tag: "meal"
+        },
+        {
+          time: "7:30 – 9:00 PM",
+          title: "Exploration / Light Activities",
+          detail: "Optional exploration around Pittsburgh.",
+          tag: "optional"
+        },
+        {
+          time: "9:00 PM – Late",
+          title: "Optional Social",
+          detail: "Informal hangouts. Early wind-down encouraged for Saturday programming.",
+          tag: "optional"
+        }
+      ],
+      saturday: [
+        {
+          time: "7:00 – 8:30 AM",
+          title: "Morning Activities",
+          detail: "Pickleball, rock climbing, group run, yoga, river walk, neighborhood tour, or farmer’s market.",
+          tag: "optional"
+        },
+        {
+          time: "9:00 – 9:30 AM",
+          title: "Breakfast at CMU",
+          detail: "Bagels, pastries, fruit, coffee, and juice.",
+          tag: "meal"
+        },
+        {
+          time: "9:30 – 10:00 AM",
+          title: "Welcome to the NE Retreat"
+        },
+        {
+          time: "10:00 – 11:00 AM",
+          title: "WEF Perspective + Community Champion Overview, Hub Introductions",
+          detail: "An overview of the Community Champion role followed by each hub introducing themselves."
+        },
+        {
+          time: "11:00 – 11:15 AM",
+          title: "Outdoor Break",
+          tag: "break"
+        },
+        {
+          time: "11:15 – 12:00 PM",
+          title: "Structured Program"
+        },
+        {
+          time: "12:00 PM",
+          title: "Lunch",
+          detail: "Lunch served with potential parallel activity.",
+          tag: "meal"
+        },
+        {
+          time: "12:45 – 1:00 PM",
+          title: "Relaxation Break",
+          tag: "break"
+        },
+        {
+          time: "1:00 – 1:45 PM",
+          title: "Structured Program"
+        },
+        {
+          time: "1:45 – 3:30 PM",
+          title: "Structured Program"
+        },
+        {
+          time: "3:30 – 4:00 PM",
+          title: "Break / Informal Networking",
+          tag: "break"
+        },
+        {
+          time: "4:00 – 5:30 PM",
+          title: "Final Structured Session"
+        },
+        {
+          time: "5:30 – 6:00 PM",
+          title: "Dinner Groups announced"
+        },
+        {
+          time: "6:30 PM",
+          title: "Group Dinner",
+          tag: "meal"
+        },
+        {
+          time: "8:30 PM – Late",
+          title: "Evening Activities",
+          detail: "Optional evening activities with both sober and non-sober options.",
+          tag: "optional"
+        }
+      ],
+      sunday: [
+        {
+          time: "8:30 – 9:30 AM",
+          title: "Arrival + Light Breakfast",
+          tag: "meal"
+        },
+        {
+          time: "9:30 – 10:45 AM",
+          title: "Closing Plenary"
+        },
+        {
+          time: "11:00 AM – 1:00 PM",
+          title: "Volunteer / Impact Activity",
+          detail: "Optional community service project.",
+          tag: "optional"
+        }
+      ]
+    };
+    /* ============ END SCHEDULE ============ */
+    /* TIMELINE RENDERER */
+    function renderSchedule(containerId, items) {
+      const container = document.getElementById(containerId);
+      items.forEach(item => {
+        const div = document.createElement("div");
+        div.className = "timeline-item";
+
+        if(item.tag){
+          div.classList.add(item.tag);
+        }
+
+        let tagHTML = "";
+
+        if(item.tag){
+          tagHTML = `
+            <div class="timeline-tags">
+              <span class="tag tag-${item.tag}">${item.tag}</span>
+            </div>
+          `;
+        }
+
+        div.innerHTML = `
+          <div class="timeline-time">${item.time}</div>
+          <div class="timeline-content">
+            <div class="timeline-title">${item.title}</div>
+            ${item.detail ? `<div class="timeline-detail">${item.detail}</div>` : ""}
+            ${tagHTML}
+          </div>
+        `;
+
+        container.appendChild(div);
+      });
+    }
+    /* Render schedules */
+    renderSchedule("fridaySchedule", schedules.friday);
+    renderSchedule("saturdaySchedule", schedules.saturday);
+    renderSchedule("sundaySchedule", schedules.sunday);
   </script>
 </body>
 </html>

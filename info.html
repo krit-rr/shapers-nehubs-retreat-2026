@@ -133,42 +133,7 @@
       margin-bottom: .5rem;
     }
 
-    /* Housing */
-    .housing-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .housing-card {
-      border: 1px solid rgba(226,226,226,0.1);
-      padding: 1.75rem;
-      transition: border-color 0.25s;
-    }
-    .housing-card:hover { border-color: rgba(251,186,96,0.3); }
-
-    .housing-type {
-      font-size: 0.72rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 0.5rem;
-    }
-
-    .housing-name {
-      font-family: var(--font-body);
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--white);
-      margin-bottom: 0.75rem;
-    }
-
-    .housing-details {
-      font-size: 0.88rem;
-      color: var(--gray);
-      line-height: 1.7;
-    }
-
+    /* Housing */    
     .housing-details-prose {
       display: flex;
       flex-direction: column;
@@ -189,6 +154,44 @@
     .housing-details p { margin-bottom: 0.4rem; }
     .housing-details strong { color: var(--light); }
 
+    /* Venue */
+    .venue-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(100px, 400px));
+      justify-content: center;
+      gap: 1.5rem;
+    }
+
+    .venue-card {
+      border: 1px solid rgba(226,226,226,0.1);
+      padding: 1.75rem;
+      transition: border-color 0.25s;
+    }
+    .venue-card:hover { border-color: var(--blue); }
+
+    .venue-type {
+      display: inline-block;
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #6fa0ff;
+      margin-bottom: 0.4rem;
+    }
+
+    .venue-name {
+      font-family: var(--font-body);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.75rem;
+    }
+
+    .venue-details {
+      font-size: 0.88rem;
+      color: var(--gray);
+      line-height: 1.7;
+    }
+  
     /* Transit */
     .transit-grid {
       display: grid;
@@ -206,8 +209,7 @@
       font-size: 0.72rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--blue);
-      color: #6fa0ff;
+      color: var(--gold);
       margin-bottom: 0.5rem;
     }
 
@@ -267,10 +269,10 @@
     }
 
     .packing-list li::before {
-      content: '□';
+      content: '•';
       color: var(--gray);
       flex-shrink: 0;
-      margin-top: 1px;
+      margin-top: 0;
     }
 
     /* Placeholder box */
@@ -317,6 +319,7 @@
   <div class="jump-nav">
     <a href="#contacts" class="info-link">Contacts</a>
     <a href="#housing" class="info-link">Housing</a>
+    <a href="#venues" class="info-link">Venues</a>
     <a href="#transit" class="info-link">Transit</a>
     <a href="#packing" class="info-link">Packing List</a>
   </div>
@@ -357,9 +360,42 @@
     </div>
 
     <div class="housing-details-prose">
+      <p>Participants are encouraged to arrange their own accommodations via short-term rentals or hotels. We recommend staying near <strong>Downtown</strong>, <strong>Oakland</strong>, <strong>Squirrel Hill</strong>, <strong>Shadyside/East Liberty</strong>, the <strong>Strip District</strong>, or <strong>Lawrenceville</strong> for ease of movement. 
+      When booking accommodations, please also consider the locations of the primary venues (see section below).</p>
+
       <p>Some Pittsburgh Shapers may be opening their homes to host visiting Shapers. When available, details will be shared via a housing coordination document.</p>
-      <p>Participants are welcome to arrange their own accommodations via hotels or short-term rentals.</p>
-      <p>We recommend staying near <strong>Oakland</strong>, <strong>Downtown</strong>, <strong>Lawrenceville</strong>, or the <strong>Strip District</strong> for ease of movement.</p>
+    </div>
+  </div>
+
+  <!-- ===== VENUES ===== -->
+  <div class="info-section" id="venues">
+    <div class="section-header">
+      <div class="section-header-text">
+        <h2>Primary Venues</h2>
+      </div>
+    </div>
+
+    <div class="venue-grid">
+      <div class="venue-card">
+        <div class="venue-type">Saturday Venue</div>
+        <div class="venue-name">CMU Swartz Center</div>
+        <div class="venue-details">
+          <p><strong>Address:</strong> 4765 Forbes Ave, Pittsburgh, PA 15213</p>
+          <p><strong>Neighborhood:</strong> Oakland</p>
+          <p><strong>Parking:</strong> Forbes & Morewood Parking Lot</p>
+          p><strong>Other Information:</strong> Easily accessible via public transit</p>
+        </div>
+      </div>
+
+      <div class="venue-card">
+        <div class="venue-type">Sunday Venue</div>
+        <div class="venue-name">TBD</div>
+        <div class="venue-details">
+          <!-- <p><strong>Address:</strong> TBD</p>
+          <p><strong>Neighborhood:</strong> TBD</p> -->
+        </div>
+      </div>
+
     </div>
   </div>
 
@@ -381,29 +417,20 @@
         </div>
       </div>
       <div class="transit-card">
-        <div class="transit-mode">Getting to Venue</div>
-        <div class="transit-title">CMU Swartz Center</div>
-        <div class="transit-desc">
-          <p><strong>Address:</strong> 4765 Forbes Ave, Pittsburgh, PA 15213</p>
-          <p style="margin-top:0.5rem"><strong>Public Transit:</strong> Easily accessible via public transit!</p>
-          <p style="margin-top:0.5rem"><strong>Parking:</strong> Available in the Forbes & Morewood Parking Lot</p>
-        </div>
-      </div>
-      <div class="transit-card">
         <div class="transit-mode">Public Transit</div>
         <div class="transit-title">Bus + Walking</div>
         <div class="transit-desc">
-          <p> Pittsburgh is very walkable within neighborhoods, but travel between neighborhoods will likely require the bus or rideshare. Pittsburgh's bus network connects many of its neighborhoods. The 61 bus line runs frequently between Downtown, Oakland (CMU/Pitt area), and Shadyside.</p>
+          <p> Pittsburgh is very walkable within neighborhoods, but travel between neighborhoods will likely require public transit or car. Pittsburgh's bus network connects many of its neighborhoods. The 61 bus line runs frequently between Downtown, Oakland (CMU/Pitt area), and Squirell Hill.</p>
           <p style="margin-top:0.5rem"><strong>Bus Navigation App:</strong> Transit App or Google Maps</p>
-          <p style="margin-top:0.5rem"><strong>Bus Fare:</strong> $2.75 per ride. You must have cash or purchase a ticket via the Transit App. Day passes are available.</p>
+          <p style="margin-top:0.5rem"><strong>Bus Fare:</strong> $2.75 per ride. You must have cash or purchase a ticket via the Transit App (cannot use card or Apple Pay). Day passes are available.</p>
         </div>
       </div>
       <div class="transit-card">
-        <div class="transit-mode">Rideshare</div>
-        <div class="transit-title">Uber, Lyft</div>
+        <div class="transit-mode">Cars</div>
+        <div class="transit-title">Rideshare Apps / Carpooling</div>
         <div class="transit-desc">
           <p><strong>Uber/Lyft:</strong> Widely available throughout Pittsburgh.</p>
-          <p style="margin-top:0.5rem">Some hub members with cars may be available to carpool. Coordination will occur via the WhatsApp group.</p>
+          <p><strong>Carpooling:</strong> Some hub members or other visiting shapers may be available to carpool. Coordination will occur via the WhatsApp group.</p>
         </div>
       </div>
     </div>
@@ -435,8 +462,8 @@
         <div class="packing-cat-title">Personal Items</div>
         <ul class="packing-list">
           <li>Toiletries (toothbrush, toothpaste, shampoo, conditioner, sunscreen, lotion, deodorant, etc.)</li>
-          <li>Medications and any necessary prescriptions</li>
-          <li>Phone charger and portable power bank</li>
+          <li>Any important medications / prescriptions</li>
+          <li>Phone with phone charger and portable power bank</li>
         </ul>
       </div>
 
@@ -444,8 +471,9 @@
         <div class="packing-cat-title">Miscellaneous</div>
         <ul class="packing-list">
           <li>Reusable water bottle</li>
-          <li>Snacks (if you have specific dietary needs)</li>
-          <li>Notebook and pen for taking notes</li>
+          <li>Snacks (especially if you have specific dietary needs)</li>
+          <li>Notebook and pen</li>
+          <li>Laptop with laptop charger (potentially useful for activities)</li>
         </ul>
       </div>
     </div>
