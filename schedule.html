@@ -122,18 +122,36 @@
       align-items: start;
     }
 
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -4px;
+      top: 8px;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      border: 2px solid var(--black);
+    }
+
+    /* [TIMELINE] Text Styling */
     .timeline-title {
       font-family: var(--font-body);
       font-size: 1.05rem;
       font-weight: 700;
-      color: var(--white);
       margin-bottom: 0.3rem;
     }
 
     .timeline-detail {
       font-size: 0.88rem;
-      color: var(--gray);
       line-height: 1.6;
+    }
+
+    .timeline-time {
+      font-family: var(--font-body);
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      padding-top: 3px;
+      font-weight: 600;
     }
 
     .timeline-tags {
@@ -143,37 +161,6 @@
       margin-top: 0.75rem;
     }
 
-    /* -------- BULLETS -------- */
-    .timeline-item::before {
-      content: '';
-      position: absolute;
-      left: -4px;
-      top: 8px;
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-      background: var(--gold);
-      border: 2px solid var(--black);
-    }
-    .timeline-item.optional::before { background: var(--gray); }
-    .timeline-item.meal::before { background: #fff; }
-    .timeline-item.break::before { background: #6fa0ff;}
-
-    /* -------- TIME TEXT -------- */
-    .timeline-time {
-      font-family: var(--font-body);
-      font-size: 0.82rem;
-      letter-spacing: 0.08em;
-      color: var(--gold);
-      padding-top: 3px;
-      font-weight: 600;
-    }
-    /* -------- TIME TEXT -------- */
-    .timeline-item.optional .timeline-time { color: var(--gray); }
-    .timeline-item.meal .timeline-time { color: #fff; }
-    .timeline-item.break .timeline-time { color: #6fa0ff; }
-
-    /* -------- TAGS -------- */
     .tag { 
       padding: 0.25rem 0.75rem;
       font-size: 0.72rem;
@@ -181,18 +168,20 @@
       text-transform: uppercase;
       border: 1px solid;
     }
-    .timeline-item.optional .tag { 
-      border-color: var(--gray); 
-      color: var(--gray);
+
+    /* [TIMELINE] Text Styling */ 
+    .timeline-item {color: var(--white);}
+    .timeline-item::before {background: var(--white);}
+    
+    .tag {
+      border-color: currentColor;
+      color: inherit;
     }
-    .timeline-item.meal .tag { 
-      border-color: #fff; 
-      color: #fff;
-    }
-    .timeline-item.break .tag { 
-      border-color: #6fa0ff; 
-      color: #6fa0ff;
-    }
+    .timeline-title, .timeline-time, .timeline-detail {color: inherit;}
+
+    .timeline-item.optional {color: var(--gray);}
+    .timeline-item.meal {color: var(--gold);}
+    .timeline-item.break {color: #5f91e7;}
 
     @media (max-width: 640px) {
       .schedule-section { padding: 0 1.5rem 4rem; }
@@ -313,13 +302,12 @@
         {
           time: "7:00 – 8:30 AM",
           title: "Morning Activities",
-          detail: "Pickleball, rock climbing, group run, yoga, river walk, neighborhood tour, or farmer’s market.",
+          detail: "Optional group activities around the city.",
           tag: "optional"
         },
         {
           time: "9:00 – 9:30 AM",
           title: "Breakfast at CMU",
-          detail: "Bagels, pastries, fruit, coffee, and juice.",
           tag: "meal"
         },
         {
@@ -328,59 +316,56 @@
         },
         {
           time: "10:00 – 11:00 AM",
-          title: "WEF Perspective + Community Champion Overview, Hub Introductions",
-          detail: "An overview of the Community Champion role followed by each hub introducing themselves."
+          title: "Community Overview + Hub Introductions"
         },
         {
-          time: "11:00 – 11:15 AM",
-          title: "Outdoor Break",
-          tag: "break"
+          time: "11:00 – 11:30 AM",
+          title: "Icebreaker Activity"
         },
         {
-          time: "11:15 – 12:00 PM",
-          title: "Structured Program"
+          time: "11:30 AM – 12:15 PM",
+          title: "Shapers Roundtables"
         },
         {
-          time: "12:00 PM",
+          time: "12:15 PM",
           title: "Lunch",
-          detail: "Lunch served with potential parallel activity.",
           tag: "meal"
         },
         {
           time: "12:45 – 1:00 PM",
-          title: "Relaxation Break",
+          title: "Reset Break",
           tag: "break"
         },
         {
           time: "1:00 – 1:45 PM",
-          title: "Structured Program"
+          title: "Town Hall Discussion"
         },
         {
-          time: "1:45 – 3:30 PM",
-          title: "Structured Program"
+          time: "1:45 – 2:30 PM",
+          title: "Breakout Sessions"
         },
         {
-          time: "3:30 – 4:00 PM",
-          title: "Break / Informal Networking",
-          tag: "break"
+          time: "2:30 – 4:00 PM",
+          title: "Service Activity"
         },
         {
           time: "4:00 – 5:30 PM",
-          title: "Final Structured Session"
+          title: "Guided City Tour"
         },
         {
           time: "5:30 – 6:00 PM",
-          title: "Dinner Groups announced"
+          title: "Free Time",
+          tag: "break"
         },
         {
           time: "6:30 PM",
-          title: "Group Dinner",
+          title: "Group Dinner with Pods",
           tag: "meal"
         },
         {
           time: "8:30 PM – Late",
           title: "Evening Activities",
-          detail: "Optional evening activities with both sober and non-sober options.",
+          detail: "Optional social and recreational options with both sober and non-sober options.",
           tag: "optional"
         }
       ],
